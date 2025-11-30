@@ -16,34 +16,19 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// 2. CORS Setup
-// --- CORS SETTINGS UPDATE ---
-
-// 1. Allowed websites ki list banayen
-const allowedOrigins = [
-  'http://localhost:5173',                   // Local Development
-  'http://localhost:3000',                   // Alternative Local
-  'https://suvora-website.vercel.app',       // LIVE WEBSITE (Frontend)
-  'https://suvora.vercel.app'                // (Optional) Another Deployment
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) === -1) {
-      var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: [
+    "https://suvora-website.vercel.app",  // Live Frontend (NO SLASH AT END!)
+    "http://localhost:5173"               // Localhost Testing
+  ],
+  methods: ["POST", "GET", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
-// --- END UPDATE ---
+// Zaroori: Vercel kabhi kabhi OPTIONS request ko handle nahi karta
+// Isliye hum manually bata rahe hain ke "Haan, ijazat hai"
+app.options('*', cors());
 
 app.use(bodyParser.json());
 
