@@ -106,23 +106,23 @@ export const PORTFOLIO: CaseStudy[] = [
 export const TEAM: TeamMember[] = [
   {
     id: 't1',
-    name: 'Alex Chen',
+    name: 'Muhammad Umer',
     role: 'CTO & Founder',
-    bio: 'Ex-Google engineer obsessed with WebGL and performance.',
+    bio: 'E ntrepreneur and full-stack developer with a passion for scalable web architectures.',
     image: 'https://picsum.photos/200/200?random=10',
   },
   {
     id: 't2',
-    name: 'Sarah Jenkins',
-    role: 'Lead Designer',
+    name: 'S.M Saqlain',
+    role: 'Co-Founder & Lead Designer',
     bio: 'Award-winning UI/UX specialist with a focus on dark mode aesthetics.',
     image: 'https://picsum.photos/200/200?random=11',
   },
   {
     id: 't3',
-    name: 'Marcus Ford',
-    role: 'Principal Engineer',
-    bio: 'Full-stack wizard specializing in serverless architectures.',
+    name: 'Ali Noor',
+    role: 'Operations Manager',
+    bio: 'Seasoned project manager ensuring timely delivery and client satisfaction.',
     image: 'https://picsum.photos/200/200?random=12',
   },
 ];
