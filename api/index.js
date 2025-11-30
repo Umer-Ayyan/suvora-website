@@ -91,7 +91,7 @@ function isRateLimited(ip) {
 }
 
 // --- API ROUTE ---
-app.post('/api/contact', async (req, res) => {
+app.post('/contact', async (req, res) => {
   console.log('Backend: /api/contact called');
   
   try {
