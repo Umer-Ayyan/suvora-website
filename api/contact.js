@@ -1,36 +1,10 @@
-// api/index.js
-
-// 1. New Syntax (Imports)
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+// api/contact.js
 import { google } from 'googleapis';
 import { z } from 'zod';
-import path from 'path';
 import dotenv from 'dotenv';
-import { fileURLToPath } from 'url';
 
-// 2. Setup __dirname (ES Modules mein ye available nahi hota, banana parta hai)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// 3. Env Config (Localhost only)
-if (process.env.NODE_ENV !== 'production') {
-  dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
-}
-
-const app = express();
-
-// 4. CORS Setup
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
-
-app.options('*', cors());
-app.use(bodyParser.json());
+// Vercel Environment Variables load karein
+// (Vercel production mein process.env khud provide karta hai)
 
 // Validation Schema
 const ContactSchema = z.object({
@@ -41,7 +15,7 @@ const ContactSchema = z.object({
   website: z.string().optional().nullable(),
 });
 
-// 5. Auth Function
+// --- HELPER: Auth Logic ---
 async function getSheetsService() {
   const b64 = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_BASE64;
   if (!b64) throw new Error('Missing GOOGLE_SERVICE_ACCOUNT_KEY_BASE64 env var');
@@ -62,33 +36,42 @@ async function getSheetsService() {
   return google.sheets({ version: 'v4', auth: client });
 }
 
-// Rate Limiter
-const rateMap = new Map();
-function isRateLimited(ip) {
-  const now = Date.now();
-  const windowMs = 60_000;
-  const max = 10;
-  const entry = rateMap.get(ip);
-  if (!entry || now > entry.reset) {
-    rateMap.set(ip, { count: 1, reset: now + windowMs });
-    return false;
-  }
-  entry.count += 1;
-  rateMap.set(ip, entry);
-  return entry.count > max;
-}
+// --- MAIN HANDLER (Native Vercel Function) ---
+export default async function handler(req, res) {
+  
+  // 1. MANUAL CORS HEADERS (Express ke baghair)
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization'
+  );
 
-// 6. MAIN HANDLER
-app.use(async (req, res) => {
-  // POST Request
+  // 2. Handle OPTIONS (Preflight)
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  // 3. Handle GET (Browser Check)
+  if (req.method === 'GET') {
+    return res.status(200).send("<h1>✅ Suvora Backend is Live (Native Mode)</h1>");
+  }
+
+  // 4. Handle POST (Form Submission)
   if (req.method === 'POST') {
     try {
-      const ip = req.headers['x-forwarded-for']?.split(',')[0] || 'unknown';
-      if (isRateLimited(ip)) return res.status(429).json({ ok: false, message: 'Too many requests' });
+      // Body Parsing (Vercel khud karta hai agar JSON ho)
+      const body = req.body; 
 
-      const parsed = ContactSchema.parse(req.body);
+      // Validation
+      const parsed = ContactSchema.parse(body);
+
+      // Honeypot
       if (parsed.website) return res.json({ ok: true, message: 'Thanks' });
 
+      // Prepare Data
+      const ip = req.headers['x-forwarded-for'] || 'unknown';
       const now = new Date().toISOString();
       const row = [
         now,
@@ -96,9 +79,10 @@ app.use(async (req, res) => {
         parsed.email,
         parsed.company || '',
         parsed.message.replace(/\n/g, ' ↵ '),
-        ip,
+        ip.toString(),
       ];
 
+      // Sheets Logic
       const sheets = await getSheetsService();
       const spreadsheetId = process.env.SPREADSHEET_ID;
       const sheetName = process.env.SHEET_NAME || 'Sheet1';
@@ -112,17 +96,16 @@ app.use(async (req, res) => {
 
       return res.status(200).json({ ok: true, message: 'Submitted' });
 
-    } catch (err) {
-      console.error('❌ Error:', err.message);
-      if (err instanceof z.ZodError) return res.status(400).json({ ok: false, message: err.errors });
-      return res.status(500).json({ ok: false, message: 'Server error: ' + err.message });
+    } catch (error) {
+      console.error("Error:", error.message);
+      
+      if (error instanceof z.ZodError) {
+        return res.status(400).json({ ok: false, message: error.errors });
+      }
+      return res.status(500).json({ ok: false, message: error.message });
     }
   }
 
-  if (req.method === 'GET') return res.status(200).send("<h1>Backend Live (ESM Mode) 🚀</h1>");
-  
-  return res.status(200).end();
-});
-
-// 7. EXPORT DEFAULT (Ye Zaroori hai ESM ke liye)
-export default app;
+  // Method Not Allowed
+  return res.status(405).json({ error: 'Method Not Allowed' });
+}
