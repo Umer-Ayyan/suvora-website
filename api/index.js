@@ -5,31 +5,28 @@ const { google } = require('googleapis');
 const { z } = require('zod');
 
 // --- PATH FIX FOR DOTENV ---
-// Sirf Local Development ke liye .env load karein
 if (process.env.NODE_ENV !== 'production') {
   const path = require('path');
   const dotenv = require('dotenv');
-  // Ab kyunke hum 'api' folder mein hain, to .env.local ek folder piche (..) hai
   dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 }
 
 const app = express();
-const PORT = process.env.PORT || 3001;
 
-// 👇 NUCLEAR CORS FIX (Temporary Allow All) 👇
+// 👇 1. CORS CONFIGURATION (Sabse Pehle) 👇
 app.use(cors({
-  origin: '*', // Sab ko allow karein (filhal ke liye)
-  methods: ['GET', 'POST', 'OPTIONS'], // OPTIONS zaroori hai preflight ke liye
+  origin: '*', 
+  methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true 
 }));
 
-// Ye line BOHT zaroori hai Vercel ke liye:
+// Vercel preflight checks ke liye zaroori
 app.options('*', cors());
 
 app.use(bodyParser.json());
 
-// Validation schema
+// 2. Validation Schema
 const ContactSchema = z.object({
   name: z.string().min(1),
   email: z.string().email(),
@@ -38,34 +35,25 @@ const ContactSchema = z.object({
   website: z.string().optional().nullable(),
 });
 
-// --- 🔥 UPDATED AUTH FUNCTION (ASYNC) ---
+// 3. AUTH FUNCTION
 async function getSheetsService() {
   const b64 = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_BASE64;
-  
-  if (!b64) {
-    throw new Error('Missing GOOGLE_SERVICE_ACCOUNT_KEY_BASE64 env var');
-  }
+  if (!b64) throw new Error('Missing GOOGLE_SERVICE_ACCOUNT_KEY_BASE64 env var');
 
   try {
-    // Decode Base64 to JSON
     const raw = Buffer.from(b64, 'base64').toString('utf8');
     const key = JSON.parse(raw);
 
-    // FIX: Private key formatting (Replace literal \n with actual newlines)
     if (key.private_key) {
       key.private_key = key.private_key.replace(/\\n/g, '\n');
     }
 
-    // MODERN AUTH METHOD: GoogleAuth
     const auth = new google.auth.GoogleAuth({
       credentials: key,
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
     });
 
-    // Create client explicitly
     const client = await auth.getClient();
-
-    // Return authenticated Sheets service
     return google.sheets({ version: 'v4', auth: client });
 
   } catch (error) {
@@ -74,7 +62,7 @@ async function getSheetsService() {
   }
 }
 
-// Rate limiting
+// 4. Rate limiting
 const rateMap = new Map();
 function isRateLimited(ip) {
   const now = Date.now();
@@ -90,62 +78,78 @@ function isRateLimited(ip) {
   return entry.count > max;
 }
 
-// --- API ROUTE ---
-app.post('/contact', async (req, res) => {
-  console.log('Backend: /api/contact called');
+// --- 🔥 MAIN HANDLER (The Fix) ---
+// Hum specific '/contact' path use nahi kar rahe taake 404 na aaye.
+// Ye function har request ko handle karega.
+app.use(async (req, res) => {
   
-  try {
-    // Validation
-    const parsed = ContactSchema.parse(req.body);
+  // Debugging logs (Vercel logs mein dikhenge)
+  console.log(`Incoming Request: ${req.method} ${req.url}`);
 
-    if (parsed.website) {
-      return res.json({ ok: true, message: 'Thanks' });
+  // CASE 1: POST Request (Form Submission)
+  if (req.method === 'POST') {
+    try {
+      // Rate Limit Check
+      const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress || 'unknown';
+      if (isRateLimited(ip)) return res.status(429).json({ ok: false, message: 'Too many requests' });
+
+      // Validation
+      const parsed = ContactSchema.parse(req.body);
+
+      // Honeypot
+      if (parsed.website) {
+        return res.json({ ok: true, message: 'Thanks' });
+      }
+
+      // Prepare Data
+      const now = new Date().toISOString();
+      const row = [
+        now,
+        parsed.name,
+        parsed.email,
+        parsed.company || '',
+        parsed.message.replace(/\n/g, ' ↵ '),
+        ip,
+      ];
+
+      // Google Sheets Operation
+      const sheets = await getSheetsService();
+      const spreadsheetId = process.env.SPREADSHEET_ID;
+      const sheetName = process.env.SHEET_NAME || 'Sheet1';
+
+      if (!spreadsheetId) throw new Error('Missing SPREADSHEET_ID env var');
+
+      await sheets.spreadsheets.values.append({
+        spreadsheetId,
+        range: `${sheetName}!A:F`,
+        valueInputOption: 'USER_ENTERED',
+        requestBody: { values: [row] },
+      });
+
+      console.log("✅ Success! Data saved.");
+      return res.status(200).json({ ok: true, message: 'Submitted' });
+
+    } catch (err) {
+      console.error('❌ Error:', err.message);
+      if (err instanceof z.ZodError) {
+        return res.status(400).json({ ok: false, message: err.errors });
+      }
+      return res.status(500).json({ ok: false, message: 'Server error: ' + err.message });
     }
+  }
 
-    const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress || 'unknown';
-    if (isRateLimited(ip)) return res.status(429).json({ ok: false, message: 'Too many requests' });
+  // CASE 2: GET Request (Browser Health Check)
+  else if (req.method === 'GET') {
+    return res.status(200).send("<h1>✅ Suvora Backend is Live and Ready!</h1>");
+  }
 
-    // Prepare Data
-    const now = new Date().toISOString();
-    const row = [
-      now,
-      parsed.name,
-      parsed.email,
-      parsed.company || '',
-      parsed.message.replace(/\n/g, ' ↵ '),
-      ip,
-    ];
-
-    // --- 🔥 NEW: AWAIT THE SERVICE ---
-    const sheets = await getSheetsService();
-    
-    const spreadsheetId = process.env.SPREADSHEET_ID;
-    const sheetName = process.env.SHEET_NAME || 'Sheet1';
-
-    if (!spreadsheetId) throw new Error('Missing SPREADSHEET_ID env var');
-
-    console.log(`Appending to Sheet ID: ${spreadsheetId}...`);
-
-    await sheets.spreadsheets.values.append({
-      spreadsheetId,
-      range: `${sheetName}!A:F`,
-      valueInputOption: 'USER_ENTERED',
-      requestBody: { values: [row] },
-    });
-
-    console.log("✅ Success! Data saved.");
-    return res.json({ ok: true, message: 'Submitted' });
-
-  } catch (err) {
-    console.error('❌ Error in /api/contact:', err.message);
-    
-    if (err instanceof z.ZodError) {
-      return res.status(400).json({ ok: false, message: err.errors });
-    }
-    return res.status(500).json({ ok: false, message: 'Server error: ' + err.message });
+  // CASE 3: OPTIONS Request (Preflight - Boht Zaroori)
+  else {
+    return res.status(200).end();
   }
 });
 
+// Localhost Listener
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3001;
   app.listen(PORT, () => {
@@ -153,4 +157,5 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
+// Export for Vercel
 module.exports = app;
