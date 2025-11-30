@@ -7,7 +7,10 @@ export interface ContactFormData {
   website?: string;
 }
 
-const BACKEND_BASE = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : '';
+
+const LIVE_URL = 'https://suvora-backend.vercel.app'; 
+
+const BACKEND_BASE = import.meta.env.PROD ? LIVE_URL : 'http://localhost:3001';
 
 export const submitContactForm = async (data: ContactFormData) => {
   const res = await fetch(`${BACKEND_BASE}/api/contact`, {
