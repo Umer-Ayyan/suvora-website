@@ -16,18 +16,15 @@ if (process.env.NODE_ENV !== 'production') {
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// 👇 NUCLEAR CORS FIX (Temporary Allow All) 👇
 app.use(cors({
-  origin: [
-    "https://suvora-website.vercel.app",  // Live Frontend (NO SLASH AT END!)
-    "http://localhost:5173"               // Localhost Testing
-  ],
-  methods: ["POST", "GET", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
+  origin: '*', // Sab ko allow karein (filhal ke liye)
+  methods: ['GET', 'POST', 'OPTIONS'], // OPTIONS zaroori hai preflight ke liye
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true 
 }));
 
-// Zaroori: Vercel kabhi kabhi OPTIONS request ko handle nahi karta
-// Isliye hum manually bata rahe hain ke "Haan, ijazat hai"
+// Ye line BOHT zaroori hai Vercel ke liye:
 app.options('*', cors());
 
 app.use(bodyParser.json());
