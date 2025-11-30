@@ -1,15 +1,17 @@
-const path = require('path');
-const dotenv = require('dotenv');
-
-// 1. Env File Load
-const envPath = path.resolve(__dirname, '.env.local');
-dotenv.config({ path: envPath });
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors'); 
-const { google } = require('googleapis'); // Ensure googleapis is installed
+const { google } = require('googleapis'); 
 const { z } = require('zod');
+
+// --- PATH FIX FOR DOTENV ---
+// Sirf Local Development ke liye .env load karein
+if (process.env.NODE_ENV !== 'production') {
+  const path = require('path');
+  const dotenv = require('dotenv');
+  // Ab kyunke hum 'api' folder mein hain, to .env.local ek folder piche (..) hai
+  dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;
