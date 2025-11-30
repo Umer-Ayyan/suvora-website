@@ -81,7 +81,7 @@ export const PORTFOLIO: CaseStudy[] = [
     description: 'Real-time financial analytics platform processing 1M+ transactions/sec.',
     impact: '+40% User Retention',
     tags: ['React', 'D3.js', 'WebSocket'],
-    image: 'https://picsum.photos/600/400?random=1',
+    image: 'https://static.vecteezy.com/system/resources/previews/003/001/886/non_2x/fintech-financial-technology-online-banking-and-crowdfunding-vector.jpg',
   },
   {
     id: 'cs-2',
@@ -90,7 +90,7 @@ export const PORTFOLIO: CaseStudy[] = [
     description: 'Headless commerce solution integrating 3D product previews.',
     impact: '2.5s Load Time',
     tags: ['Next.js', 'Shopify', 'WebGL'],
-    image: 'https://picsum.photos/600/400?random=2',
+    image: 'https://minutemirror.com.pk//wp-content/uploads/2024/06/imresizer-1717525435269.jpeg',
   },
   {
     id: 'cs-3',
@@ -99,7 +99,7 @@ export const PORTFOLIO: CaseStudy[] = [
     description: 'Browser-based DICOM viewer with client-side ML inference.',
     impact: '99.9% Uptime',
     tags: ['TensorFlow.js', 'WebAssembly', 'Rust'],
-    image: 'https://picsum.photos/600/400?random=3',
+    image: 'https://i0.wp.com/epthinktank.eu/wp-content/uploads/2020/12/adobestock_380560388.jpeg.png?fit=1024%2C524&ssl=1',
   },
 ];
 
@@ -109,21 +109,21 @@ export const TEAM: TeamMember[] = [
     name: 'Muhammad Umer',
     role: 'CTO & Founder',
     bio: 'E ntrepreneur and full-stack developer with a passion for scalable web architectures.',
-    image: 'https://picsum.photos/200/200?random=10',
+    image: 'https://cdn.vectorstock.com/i/500p/52/38/businessman-avatar-icon-vector-11835238.jpg',
   },
   {
     id: 't2',
     name: 'S.M Saqlain',
     role: 'Co-Founder & Lead Designer',
     bio: 'Award-winning UI/UX specialist with a focus on dark mode aesthetics.',
-    image: 'https://picsum.photos/200/200?random=11',
+    image: 'https://cdn.vectorstock.com/i/500p/52/38/businessman-avatar-icon-vector-11835238.jpg',
   },
   {
     id: 't3',
     name: 'Ali Noor',
     role: 'Operations Manager',
     bio: 'Seasoned project manager ensuring timely delivery and client satisfaction.',
-    image: 'https://picsum.photos/200/200?random=12',
+    image: 'https://cdn.vectorstock.com/i/500p/52/38/businessman-avatar-icon-vector-11835238.jpg',
   },
 ];
 
