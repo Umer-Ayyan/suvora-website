@@ -167,7 +167,7 @@ const App: React.FC = () => {
                             </div>
                             <div>
                                 <h4 className="font-bold text-white">Office</h4>
-                                <p className="text-slate-400">101 Mission St, Suite 500<br/>San Francisco, CA 94105</p>
+                                <p className="text-slate-400">Shaheen Heights, Suite 500<br/>Karachi, Pakistan</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
