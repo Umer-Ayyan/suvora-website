@@ -118,11 +118,11 @@ const App: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                     <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
-                        <div className="text-4xl font-bold text-suvora-primary mb-2">50+</div>
+                        <div className="text-4xl font-bold text-suvora-primary mb-2">10+</div>
                         <div className="text-sm text-slate-500">Projects Delivered</div>
                     </div>
                     <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
-                        <div className="text-4xl font-bold text-suvora-accent mb-2">3</div>
+                        <div className="text-4xl font-bold text-suvora-accent mb-2">2</div>
                         <div className="text-sm text-slate-500">Global Hubs</div>
                     </div>
                 </div>

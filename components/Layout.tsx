@@ -115,7 +115,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <h4 className="font-bold text-white mb-4">Contact</h4>
               <ul className="space-y-2 text-slate-400 text-sm">
                 <li>{SUVORA_CONFIG.contactEmail}</li>
-                <li>San Francisco, CA</li>
+                <li>Karachi, Pakistan</li>
               </ul>
             </div>
           </div>
