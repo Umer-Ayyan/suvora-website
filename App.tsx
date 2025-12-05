@@ -176,7 +176,7 @@ const App: React.FC = () => {
                             </div>
                             <div>
                                 <h4 className="font-bold text-white">Email</h4>
-                                <p className="text-slate-400">hello@suvora.tech</p>
+                                <p className="text-slate-400">teams@suvora.tech</p>
                             </div>
                         </div>
                     </div>
