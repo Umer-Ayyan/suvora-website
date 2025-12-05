@@ -15,7 +15,7 @@ import {
 export const SUVORA_CONFIG: SiteConfig = {
   brandName: 'Suvora',
   tagline: 'We build the future, in code.',
-  contactEmail: 'hello@suvora.tech',
+  contactEmail: 'teams@suvora.tech',
   navLinks: [
     { label: 'Services', href: '#services' },
     { label: 'Work', href: '#portfolio' },
