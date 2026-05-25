@@ -1,9 +1,18 @@
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
   return (
     <Layout>
+        <Helmet>
+  <title>Contact Us | Suvora Tech</title>
+
+  <meta
+    name="description"
+    content="Get in touch with Suvora Tech for web development, AI solutions, SaaS products, and digital services."
+  />
+</Helmet>
       <div className="min-h-screen bg-suvora-900 text-white">
 
         {/* Hero Section */}

@@ -10,6 +10,10 @@ import Careers from './pages/Careers';
 import Legal from './pages/Legal';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import AIAutomation from './pages/blog/AIAutomation';
+import ReactVsNextJS from './pages/blog/ReactVsNextJS';
+import BestSaaSStack from './pages/blog/BestSaaSStack';
 
 const rootElement = document.getElementById('root');
 
@@ -30,6 +34,10 @@ root.render(
         <Route path="/legal" element={<Legal />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/ai-automation" element={<AIAutomation />} />
+        <Route path="/blog/react-vs-nextjs" element={<ReactVsNextJS />} />
+        <Route path="/blog/best-saas-stack-2026" element={<BestSaaSStack />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

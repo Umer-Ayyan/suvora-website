@@ -4,10 +4,20 @@ import HeroSection from './components/HeroSection';
 import ContactForm from './components/ContactForm';
 import { SERVICES, PORTFOLIO, TEAM, ICON_MAP, TECH_STACK } from './constants';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 
 const App: React.FC = () => {
   return (
     <Layout>
+        <Helmet>
+  <title>Suvora Tech | Modern Software & AI Solutions</title>
+
+  <meta
+    name="description"
+    content="Suvora Tech builds modern web apps, AI solutions, SaaS platforms, and scalable digital products."
+  />
+</Helmet>
+
       <HeroSection />
 
       {/* Services Section */}

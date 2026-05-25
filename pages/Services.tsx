@@ -1,8 +1,17 @@
 import Layout from '../components/Layout';
-
+import { Helmet } from 'react-helmet';
 const Services = () => {
   return (
     <Layout>
+        <Helmet>
+  <title>Services | Suvora Tech</title>
+
+  <meta
+    name="description"
+    content="Explore web development, AI solutions, SaaS products, UI/UX design, and cloud services by Suvora Tech."
+  />
+</Helmet>
+
       <div className="min-h-screen bg-suvora-900 text-white">
 
         {/* Hero Section */}
@@ -184,6 +193,55 @@ const Services = () => {
         </section>
 
       </div>
+    <section className="py-24 px-6">
+  <div className="max-w-5xl mx-auto">
+
+    <h2 className="text-4xl font-bold mb-12">
+      Frequently Asked Questions
+    </h2>
+
+    <div className="space-y-8">
+
+      <div>
+        <h3 className="text-2xl font-semibold mb-3">
+          What services does Suvora Tech provide?
+        </h3>
+
+        <p className="text-slate-400">
+          Suvora Tech provides web development,
+          AI solutions, SaaS development,
+          UI/UX design, mobile apps,
+          and cloud infrastructure services.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-2xl font-semibold mb-3">
+          Do you work with international clients?
+        </h3>
+
+        <p className="text-slate-400">
+          Yes, we work remotely with startups,
+          enterprises, and businesses globally.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-2xl font-semibold mb-3">
+          Which technologies do you use?
+        </h3>
+
+        <p className="text-slate-400">
+          We use React, Next.js, TypeScript,
+          Node.js, Tailwind CSS, AI APIs,
+          and modern cloud platforms.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
     </Layout>
   );
 };

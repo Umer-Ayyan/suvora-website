@@ -23,6 +23,7 @@ export const SUVORA_CONFIG: SiteConfig = {
   { label: 'About', href: '/about' },
   { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Blog', href: '/blog' },
 ],
   colors: {
     primary: '#7c5cff',

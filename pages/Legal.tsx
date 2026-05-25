@@ -1,8 +1,16 @@
 import Layout from '../components/Layout';
-
+import { Helmet } from 'react-helmet';
 const Legal = () => {
   return (
     <Layout>
+        <Helmet>
+  <title>Legal | Suvora Tech</title>
+
+  <meta
+    name="description"
+    content="Review Suvora Tech terms, privacy policy, legal information, and service agreements."
+  />
+</Helmet>
       <div className="min-h-screen bg-suvora-900 text-white">
 
         {/* Hero Section */}
