@@ -11,9 +11,9 @@ import Legal from './pages/Legal';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
-import AIAutomation from './pages/blog/AIAutomation';
-import ReactVsNextJS from './pages/blog/ReactVsNextJS';
-import BestSaaSStack from './pages/blog/BestSaaSStack';
+import AIAutomation from './pages/Blog/AIAutomation';
+import ReactVsNextJS from './pages/Blog/ReactVsNextJS';
+import BestSaaSStack from './pages/Blog/BestSaaSStack';
 
 const rootElement = document.getElementById('root');
 
