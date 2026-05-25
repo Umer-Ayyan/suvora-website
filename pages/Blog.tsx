@@ -1,6 +1,15 @@
 import Layout from '../components/Layout';
+import { useEffect, useState } from 'react';
+import PageSkeleton from '../components/PageSkeleton';
 
 const Blog = () => {
+    const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  setTimeout(() => {
+    setLoading(false);
+  }, 1200);
+}, []);
   return (
     <Layout>
       <div className="min-h-screen bg-suvora-900 text-white">

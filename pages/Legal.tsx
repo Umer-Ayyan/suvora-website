@@ -1,6 +1,15 @@
 import Layout from '../components/Layout';
 import { Helmet } from 'react-helmet';
+import { useEffect, useState } from 'react';
+import PageSkeleton from '../components/PageSkeleton';
 const Legal = () => {
+    const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  setTimeout(() => {
+    setLoading(false);
+  }, 1200);
+}, []);
   return (
     <Layout>
         <Helmet>

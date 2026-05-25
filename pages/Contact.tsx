@@ -1,8 +1,17 @@
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm';
 import { Helmet } from 'react-helmet';
+import { useEffect, useState } from 'react';
+import PageSkeleton from '../components/PageSkeleton';
 
 const Contact = () => {
+    const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+  setTimeout(() => {
+    setLoading(false);
+  }, 1200);
+}, []);
   return (
     <Layout>
         <Helmet>

@@ -14,6 +14,7 @@ import Blog from './pages/Blog';
 import AIAutomation from './pages/Blog/AIAutomation';
 import ReactVsNextJS from './pages/Blog/ReactVsNextJS';
 import BestSaaSStack from './pages/Blog/BestSaaSStack';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 const rootElement = document.getElementById('root');
 
