@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SUVORA_CONFIG } from '../constants';
-import { Menu, X, Github, Twitter, Linkedin } from 'lucide-react';
+import { Menu, X, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         }`}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
-          <a href="#" className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2">
+          <a href="/" className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2">
             <div className="w-8 h-8 rounded bg-gradient-to-br from-suvora-primary to-suvora-accent" />
             {SUVORA_CONFIG.brandName}
           </a>
@@ -42,11 +42,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </a>
             ))}
             <a 
-              href="#contact" 
-              className="px-5 py-2.5 text-sm font-bold bg-white text-suvora-900 rounded hover:bg-slate-200 transition-colors"
-            >
-              Get Started
-            </a>
+  href="/contact" 
+  className="px-5 py-2.5 text-sm font-bold bg-white text-suvora-900 rounded hover:bg-slate-200 transition-colors"
+>
+  Get Started
+</a>
           </div>
 
           {/* Mobile Toggle */}
@@ -95,19 +95,42 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 Built with performance, accessibility, and aesthetics in mind.
               </p>
               <div className="flex gap-4">
-                <a href="#" aria-label="Github" className="text-slate-500 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-                <a href="#" aria-label="Twitter" className="text-slate-500 hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
-                <a href="#" aria-label="LinkedIn" className="text-slate-500 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
-              </div>
+  <a 
+    href="https://wa.me/923140258385"
+    target="_blank"
+    aria-label="WhatsApp"
+    className="text-slate-500 hover:text-white transition-colors"
+  >
+    <MessageCircle className="w-5 h-5" />
+  </a>
+
+  <a 
+    href="https://instagram.com/suvora.tech/"
+    target="_blank"
+    aria-label="Instagram"
+    className="text-slate-500 hover:text-white transition-colors"
+  >
+    <Instagram className="w-5 h-5" />
+  </a>
+
+  <a 
+    href="https://linkedin.com/company/suvora-tech/"
+    target="_blank"
+    aria-label="LinkedIn"
+    className="text-slate-500 hover:text-white transition-colors"
+  >
+    <Linkedin className="w-5 h-5" />
+  </a>
+</div>
             </div>
             
             <div>
               <h4 className="font-bold text-white mb-4">Company</h4>
               <ul className="space-y-2 text-slate-400 text-sm">
-                <li><a href="#about" className="hover:text-suvora-accent">About Us</a></li>
-                <li><a href="#portfolio" className="hover:text-suvora-accent">Case Studies</a></li>
-                <li><a href="#" className="hover:text-suvora-accent">Careers</a></li>
-                <li><a href="#" className="hover:text-suvora-accent">Legal</a></li>
+                <li><a href="/about" className="hover:text-suvora-accent">About Us</a></li>
+                <li><a href="/case-studies" className="hover:text-suvora-accent">Case Studies</a></li>
+                <li><a href="/careers" className="hover:text-suvora-accent">Careers</a></li>
+                <li><a href="/legal" className="hover:text-suvora-accent">Legal</a></li>
               </ul>
             </div>
             

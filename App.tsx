@@ -37,11 +37,11 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
-                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Selected Works</h2>
+                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Case Studies</h2>
                     <p className="text-slate-400">Transforming industries through code.</p>
                 </div>
                 <a href="#" className="flex items-center gap-2 text-suvora-accent font-medium hover:text-white transition-colors">
-                    View all projects <ArrowRight className="w-4 h-4" />
+                    View Case Studies <ArrowRight className="w-4 h-4" />
                 </a>
             </div>
 

@@ -17,11 +17,13 @@ export const SUVORA_CONFIG: SiteConfig = {
   tagline: 'We build the future, in code.',
   contactEmail: 'teams@suvora.tech',
   navLinks: [
-    { label: 'Services', href: '#services' },
-    { label: 'Work', href: '#portfolio' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
-  ],
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
+  { label: 'Case Studies', href: '/case-studies' },
+  { label: 'About', href: '/about' },
+  { label: 'Careers', href: '/careers' },
+  { label: 'Contact', href: '/contact' },
+],
   colors: {
     primary: '#7c5cff',
     secondary: '#4bd3ff',
@@ -109,21 +111,21 @@ export const TEAM: TeamMember[] = [
     name: 'Muhammad Umer',
     role: 'CEO & Founder',
     bio: 'Entrepreneur and full-stack developer with a passion for scalable web architectures.',
-    image: 'https://cdn.vectorstock.com/i/500p/52/38/businessman-avatar-icon-vector-11835238.jpg',
+    image: 'https://img.freepik.com/fotos-premium/conheca-um-amigavel-semi-robo-financeiro-profissional-do-cazaquistao-que-mistura-tecnologia_1283595-28954.jpg?w=360',
   },
   {
     id: 't2',
     name: 'Taheera Shahid',
     role: 'HR Manager',
     bio: 'Results-driven HR professional focused on talent acquisition, employee engagement, and organizational growth.',
-    image: 'https://cdn.vectorstock.com/i/500p/52/38/businessman-avatar-icon-vector-11835238.jpg',
+    image: 'https://img.freepik.com/premium-vector/beautiful-girl-vector-illustration_1275990-9890.jpg',
   },
   {
     id: 't3',
     name: 'Ayesha Amjad',
     role: 'Business Development Executive',
     bio: 'Bridging the gap between your digital goals and the right expertise to make them happen.',
-    image: 'https://cdn.vectorstock.com/i/500p/52/38/businessman-avatar-icon-vector-11835238.jpg',
+    image: 'https://img.freepik.com/premium-vector/beautiful-girl-vector-illustration_1275990-9890.jpg',
   },
 ];
 
