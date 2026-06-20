@@ -13,11 +13,11 @@ useEffect(() => {
   return (
     <Layout>
         <Helmet>
-  <title>About Us | Suvora Tech</title>
+  <title>About Suvora Tech | Software House Karachi Pakistan</title>
 
   <meta
     name="description"
-    content="Learn more about Suvora Tech and our mission to build premium digital experiences."
+    content="Suvora Tech is a software house based in Karachi, Pakistan. We build web apps, ERP systems, mobile apps and AI solutions for Pakistani and global businesses."
   />
 </Helmet>
     <div className="min-h-screen bg-suvora-900 text-white">

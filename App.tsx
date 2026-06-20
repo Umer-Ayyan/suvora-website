@@ -208,6 +208,39 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Why Suvora — Pakistan SEO section */}
+      <section className="py-20 bg-suvora-900 border-t border-slate-900">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 text-center">
+            Pakistan's Modern Software House
+          </h2>
+          <p className="text-slate-400 text-center max-w-2xl mx-auto mb-14 text-lg">
+            Suvora Tech is based in Karachi and serves businesses across Pakistan — Lahore, Islamabad, Faisalabad, and globally.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {[
+              { title: 'Web Development Pakistan', desc: 'We build high-performance websites and web applications for Pakistani startups, SMEs and enterprises using React, Next.js and modern stacks.' },
+              { title: 'ERP Software Pakistan', desc: 'FlowERP — our own cloud ERP — serves Pakistani businesses with 18 industry presets. Textile, pharma, freight, manufacturing and more.' },
+              { title: 'Mobile App Development', desc: 'Cross-platform mobile apps for Pakistani businesses. React Native and Flutter apps that work on Android and iOS.' },
+              { title: 'AI Solutions Pakistan', desc: 'AI-powered automation, chatbots, intelligent workflows and machine learning solutions for Pakistani companies looking to modernize.' },
+              { title: 'SaaS Development Karachi', desc: 'End-to-end SaaS product development — from idea to launch. We handle frontend, backend, database, cloud and DevOps.' },
+              { title: 'Software House Karachi', desc: 'Based in Karachi, Pakistan. We understand local business needs — Urdu support, PKR pricing, Pakistani regulations and industry context.' },
+            ].map(item => (
+              <div key={item.title} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-suvora-primary/40 transition-all">
+                <h3 className="font-bold text-white mb-2 text-base">{item.title}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center">
+            <a href="/contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-suvora-primary hover:bg-violet-500 text-white font-semibold transition-colors">
+              Get a Free Quote →
+            </a>
+            <p className="text-slate-600 text-sm mt-3">We respond within 24 hours · teams@suvora.tech</p>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
         {/* Abstract Background for Contact */}

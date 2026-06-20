@@ -14,12 +14,13 @@ useEffect(() => {
   return (
     <Layout>
         <Helmet>
-  <title>Services | Suvora Tech</title>
-
-  <meta
-    name="description"
-    content="Explore web development, AI solutions, SaaS products, UI/UX design, and cloud services by Suvora Tech."
-  />
+  <title>Software Development Services Pakistan | Web, AI, Mobile Apps | Suvora Tech Karachi</title>
+  <meta name="description" content="Suvora Tech offers web development, mobile apps, AI solutions, ERP software and SaaS development in Pakistan. Top software house in Karachi." />
+  <meta name="keywords" content="web development Pakistan, software development Karachi, mobile app development Pakistan, AI solutions Pakistan, ERP software Pakistan, SaaS development Pakistan, software house Karachi" />
+  <link rel="canonical" href="https://suvora.tech/services" />
+  <meta property="og:title" content="Software Development Services Pakistan | Suvora Tech" />
+  <meta property="og:description" content="Web development, mobile apps, AI solutions and ERP software by Suvora Tech — Pakistan's modern software house in Karachi." />
+  <meta property="og:url" content="https://suvora.tech/services" />
 </Helmet>
 
       <div className="min-h-screen bg-suvora-900 text-white">
