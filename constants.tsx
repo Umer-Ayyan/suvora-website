@@ -18,6 +18,7 @@ export const SUVORA_CONFIG: SiteConfig = {
   contactEmail: 'teams@suvora.tech',
   navLinks: [
   { label: 'Home', href: '/' },
+  { label: 'Products', href: '/#products' },
   { label: 'Services', href: '/services' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'About', href: '/about' },
@@ -78,6 +79,15 @@ export const SERVICES: ServiceItem[] = [
 
 export const PORTFOLIO: CaseStudy[] = [
   {
+    id: 'cs-flowerp',
+    title: 'FlowERP — Pakistan Cloud ERP',
+    client: 'Suvora Product',
+    description: 'Full-stack multi-tenant ERP SaaS built for Pakistani SMEs. 10 modules, 18 industry presets, PKR pricing. Handles textile, pharma, freight, restaurant, indenting and more.',
+    impact: '18 Industries Served',
+    tags: ['Next.js', 'FastAPI', 'PostgreSQL', 'Supabase', 'Python'],
+    image: 'https://flowerp.suvora.tech/og-image.png',
+  },
+  {
     id: 'cs-1',
     title: 'FinTech Dashboard Core',
     client: 'NovaFinance',
@@ -94,15 +104,6 @@ export const PORTFOLIO: CaseStudy[] = [
     impact: '2.5s Load Time',
     tags: ['Next.js', 'Shopify', 'WebGL'],
     image: 'https://minutemirror.com.pk//wp-content/uploads/2024/06/imresizer-1717525435269.jpeg',
-  },
-  {
-    id: 'cs-3',
-    title: 'AI Medical Imaging',
-    client: 'MediScan',
-    description: 'Browser-based DICOM viewer with client-side ML inference.',
-    impact: '99.9% Uptime',
-    tags: ['TensorFlow.js', 'WebAssembly', 'Rust'],
-    image: 'https://i0.wp.com/epthinktank.eu/wp-content/uploads/2020/12/adobestock_380560388.jpeg.png?fit=1024%2C524&ssl=1',
   },
 ];
 

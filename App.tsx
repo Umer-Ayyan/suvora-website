@@ -10,15 +10,70 @@ const App: React.FC = () => {
   return (
     <Layout>
         <Helmet>
-  <title>Suvora Tech | Modern Software & AI Solutions</title>
-
-  <meta
-    name="description"
-    content="Suvora Tech builds modern web apps, AI solutions, SaaS platforms, and scalable digital products."
-  />
+  <title>Suvora Tech | Software House Pakistan | Web, ERP &amp; AI Solutions</title>
+  <meta name="description" content="Suvora Tech is Pakistan's modern software house. We build ERP systems, web apps, mobile apps and AI solutions for Pakistani businesses. Based in Karachi." />
 </Helmet>
 
       <HeroSection />
+
+      {/* Our Products — FlowERP */}
+      <section id="products" className="py-24 bg-slate-950 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-violet-600/10 rounded-full blur-3xl" />
+        </div>
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-mono text-suvora-accent uppercase tracking-widest">Our Products</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4">Built in Pakistan, <span className="text-suvora-primary">for Pakistan</span></h2>
+            <p className="text-slate-400 text-lg">We don't just build for clients — we ship our own products too.</p>
+          </div>
+
+          {/* FlowERP Card */}
+          <div className="max-w-4xl mx-auto bg-gradient-to-br from-violet-900/20 to-slate-900/60 border border-violet-500/20 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center">
+            {/* Logo side */}
+            <div className="flex-shrink-0 flex flex-col items-center gap-4">
+              <div className="w-20 h-20 rounded-2xl flex items-center justify-center text-white text-4xl font-black" style={{background:'linear-gradient(135deg,#7c3aed,#f97316)'}}>
+                F
+              </div>
+              <span className="text-white font-bold text-xl">FlowERP</span>
+              <a
+                href="https://flowerp.suvora.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-sm font-semibold text-white transition-colors"
+              >
+                Try Free →
+              </a>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {['Cloud ERP', 'Pakistan', 'PKR Pricing', '18 Industries', '14-Day Free Trial'].map(t => (
+                  <span key={t} className="text-xs px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/25 text-violet-300">{t}</span>
+                ))}
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Pakistan's #1 Cloud ERP Software</h3>
+              <p className="text-slate-400 leading-relaxed mb-6">
+                FlowERP is a full-stack multi-tenant ERP SaaS built specifically for Pakistani SMEs. Covers Sales, Inventory, Finance, HR, CRM, Manufacturing, Freight Forwarding, Restaurant POS, and Indenting — with 18 industry presets and PKR pricing.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  {n:'10+', l:'ERP Modules'},
+                  {n:'18', l:'Industry Presets'},
+                  {n:'PKR', l:'Local Pricing'},
+                  {n:'30 min', l:'Setup Time'},
+                ].map(s => (
+                  <div key={s.l} className="text-center p-3 rounded-xl bg-white/5 border border-white/10">
+                    <div className="text-xl font-bold text-suvora-primary">{s.n}</div>
+                    <div className="text-xs text-slate-500 mt-1">{s.l}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section id="services" className="py-24 bg-suvora-900 relative overflow-hidden">
@@ -128,7 +183,7 @@ const App: React.FC = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                     <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
-                        <div className="text-4xl font-bold text-suvora-primary mb-2">10+</div>
+                        <div className="text-4xl font-bold text-suvora-primary mb-2">15+</div>
                         <div className="text-sm text-slate-500">Projects Delivered</div>
                     </div>
                     <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
