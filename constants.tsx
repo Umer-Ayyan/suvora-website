@@ -42,12 +42,12 @@ export const HERO_SETTINGS: HeroSettings = {
 
 // Map icon names to components for rendering
 export const ICON_MAP: Record<string, React.ReactNode> = {
-  'web': <Code2 className="w-5 h-5" />,
-  'mobile': <Smartphone className="w-5 h-5" />,
-  'design': <Palette className="w-5 h-5" />,
-  'cloud': <Cloud className="w-5 h-5" />,
-  'backend': <Database className="w-5 h-5" />,
-  'security': <ShieldCheck className="w-5 h-5" />,
+  'web': <Code2 className="w-8 h-8" />,
+  'mobile': <Smartphone className="w-8 h-8" />,
+  'design': <Palette className="w-8 h-8" />,
+  'cloud': <Cloud className="w-8 h-8" />,
+  'backend': <Database className="w-8 h-8" />,
+  'security': <ShieldCheck className="w-8 h-8" />,
 };
 
 export const SERVICES: ServiceItem[] = [

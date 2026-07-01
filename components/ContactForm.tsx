@@ -7,7 +7,7 @@ const ContactForm: React.FC = () => {
     name: '',
     email: '',
     company: '',
-    message: '',
+    message: ''
   });
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
@@ -18,6 +18,7 @@ const ContactForm: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
+    
     try {
       await submitContactForm(formData);
       setStatus('success');
@@ -30,27 +31,13 @@ const ContactForm: React.FC = () => {
 
   if (status === 'success') {
     return (
-      <div
-        className="p-10 rounded-3xl text-center"
-        style={{
-          background: 'rgba(255,255,255,.025)',
-          border: '1px solid rgba(52,211,153,.22)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,.06), 0 24px 48px rgba(0,0,0,.30), 0 0 40px rgba(52,211,153,.04)',
-        }}
-      >
-        <div
-          className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
-          style={{ background: 'rgba(52,211,153,.10)', border: '1px solid rgba(52,211,153,.22)' }}
-        >
-          <CheckCircle2 className="w-8 h-8 text-emerald-400" />
-        </div>
-        <h3 className="text-2xl font-display font-bold text-white mb-3">Message Sent!</h3>
-        <p className="text-slate-400 mb-8 leading-relaxed max-w-sm mx-auto">
-          Thank you for reaching out. Our team will review your project and get back to you within 24 hours.
-        </p>
-        <button
+      <div className="bg-suvora-800/50 backdrop-blur-md p-8 rounded-2xl border border-green-500/30 text-center animate-in fade-in zoom-in duration-300">
+        <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
+        <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+        <p className="text-slate-300 mb-6">Thank you for reaching out. Our team will review your project and get back to you within 24 hours.</p>
+        <button 
           onClick={() => setStatus('idle')}
-          className="text-sm text-suvora-accent font-semibold hover:text-white transition-colors"
+          className="text-suvora-accent hover:underline"
         >
           Send another message
         </button>
@@ -59,120 +46,86 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="p-7 md:p-9 rounded-3xl relative overflow-hidden"
-      style={{
-        background: 'rgba(255,255,255,.025)',
-        border: '1px solid rgba(255,255,255,.07)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,.06), 0 24px 56px rgba(0,0,0,.32)',
-      }}
-    >
-      {/* Ambient inner glow */}
-      <div
-        className="absolute top-0 right-0 pointer-events-none"
-        style={{
-          width: 300, height: 200,
-          background: 'radial-gradient(ellipse, rgba(124,92,255,.06) 0%, transparent 70%)',
-          filter: 'blur(40px)',
-          zIndex: 0,
-        }}
-      />
+    <form onSubmit={handleSubmit} className="bg-suvora-800/50 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-slate-800 shadow-2xl relative overflow-hidden">
+      {/* Decorative gradient blob */}
+      <div className="absolute -top-20 -right-20 w-40 h-40 bg-suvora-primary/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="relative z-10">
-        <h3 className="text-2xl font-display font-bold text-white mb-7">Start a Project</h3>
-
-        <div className="space-y-5">
-          <div>
-            <label htmlFor="name" className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              value={formData.name}
-              onChange={handleChange}
-              className="p-input"
-              placeholder="Enter your name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleChange}
-              className="p-input"
-              placeholder="you@company.com"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="company" className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
-              Company <span className="normal-case text-slate-700">(Optional)</span>
-            </label>
-            <input
-              type="text"
-              id="company"
-              name="company"
-              value={formData.company}
-              onChange={handleChange}
-              className="p-input"
-              placeholder="Tech Inc."
-            />
-          </div>
-
-          <div>
-            <label htmlFor="message" className="block text-xs font-semibold text-slate-500 uppercase tracking-widest mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              className="p-input resize-none"
-              placeholder="Tell us about your project goals..."
-            />
-          </div>
-
-          {/* Honeypot */}
-          <input type="text" name="website" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-
-          {status === 'error' && (
-            <p className="text-xs text-red-400 font-medium">
-              Something went wrong. Please try again or email us directly at teams@suvora.tech
-            </p>
-          )}
-
-          <button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="btn-primary w-full py-4 rounded-xl text-white font-semibold text-base flex items-center justify-center gap-2.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none"
-          >
-            {status === 'submitting' ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Sending…
-              </>
-            ) : (
-              <>
-                Send Message
-                <Send className="w-4 h-4" />
-              </>
-            )}
-          </button>
+      <h3 className="text-2xl font-display font-bold text-white mb-6">Start a Project</h3>
+      
+      <div className="space-y-4">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-1">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full bg-suvora-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-suvora-primary focus:border-transparent transition-all outline-none"
+            placeholder="Enter your name"
+          />
         </div>
+        
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-slate-400 mb-1">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full bg-suvora-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-suvora-primary focus:border-transparent transition-all outline-none"
+            placeholder="example@company.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="company" className="block text-sm font-medium text-slate-400 mb-1">Company (Optional)</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            className="w-full bg-suvora-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-suvora-primary focus:border-transparent transition-all outline-none"
+            placeholder="Tech Inc."
+          />
+        </div>
+
+        <div>
+          <label htmlFor="message" className="block text-sm font-medium text-slate-400 mb-1">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows={4}
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full bg-suvora-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-suvora-primary focus:border-transparent transition-all outline-none resize-none"
+            placeholder="Tell us about your project goals..."
+          />
+        </div>
+
+        {/* Honeypot for bots */}
+        <input type="text" name="website" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
+        <button
+          type="submit"
+          disabled={status === 'submitting'}
+          className="w-full bg-gradient-to-r from-suvora-primary to-suvora-accent text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(124,92,255,0.4)] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+        >
+          {status === 'submitting' ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" /> Sending...
+            </>
+          ) : (
+            <>
+              Send Message <Send className="w-4 h-4" />
+            </>
+          )}
+        </button>
       </div>
     </form>
   );
