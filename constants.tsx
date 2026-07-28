@@ -122,13 +122,6 @@ export const TEAM: TeamMember[] = [
     bio: 'Results-driven HR professional focused on talent acquisition, employee engagement, and organizational growth.',
     image: 'https://img.freepik.com/premium-vector/beautiful-girl-vector-illustration_1275990-9890.jpg',
   },
-  {
-    id: 't3',
-    name: 'Ayesha Amjad',
-    role: 'Business Development Executive',
-    bio: 'Bridging the gap between your digital goals and the right expertise to make them happen.',
-    image: 'https://img.freepik.com/premium-vector/beautiful-girl-vector-illustration_1275990-9890.jpg',
-  },
 ];
 
 export const TECH_STACK: TechItem[] = [
