@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SUVORA_CONFIG } from '../constants';
+import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 import { Menu, X, Linkedin, Instagram, MessageCircle } from 'lucide-react';
 
 interface LayoutProps {
@@ -19,8 +19,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-slate-100 bg-suvora-900 selection:bg-suvora-primary selection:text-white">
       {/* Navigation */}
+      {IS_INDEPENDENCE_DAY && (
+        <div className="bg-emerald-600 text-white text-center py-2 text-sm font-semibold tracking-wide shadow-md z-[60] relative">
+          🎉 Happy Independence Day! Celebrating Pakistan's 79th Independence 🇵🇰
+        </div>
+      )}
       <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+          IS_INDEPENDENCE_DAY ? 'top-9' : 'top-0'
+        } ${
           isScrolled ? 'bg-suvora-900/90 backdrop-blur-md py-4 border-b border-slate-800' : 'bg-transparent py-6'
         }`}
       >

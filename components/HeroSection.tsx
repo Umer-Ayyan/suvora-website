@@ -1,7 +1,7 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import HeroFallback from './HeroFallback';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import { SUVORA_CONFIG } from '../constants';
+import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 
 const Hero3D = React.lazy(() => import('./Hero3D'));
 
@@ -32,12 +32,14 @@ const HeroSection: React.FC = () => {
         <div className="max-w-3xl">
           <div className="inline-flex items-center px-3 py-1 rounded-full border border-suvora-accent/30 bg-suvora-accent/10 backdrop-blur-sm mb-6">
             <span className="w-2 h-2 rounded-full bg-suvora-accent mr-2 animate-pulse" />
-            <span className="text-suvora-accent text-xs font-mono tracking-widest uppercase">System Online v2.0</span>
+            <span className="text-suvora-accent text-xs font-mono tracking-widest uppercase">
+              System Online v2.0 {IS_INDEPENDENCE_DAY && '🇵🇰'}
+            </span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight tracking-tight">
             We build the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-suvora-primary to-suvora-accent">future</span>, in code.
+            <span className={`text-transparent bg-clip-text bg-gradient-to-r ${IS_INDEPENDENCE_DAY ? 'from-emerald-500 to-green-400' : 'from-suvora-primary to-suvora-accent'}`}>future</span>, in code.
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-light leading-relaxed">
