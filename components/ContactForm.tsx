@@ -6,6 +6,7 @@ const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
+    phone: '',
     company: '',
     message: ''
   });
@@ -22,7 +23,7 @@ const ContactForm: React.FC = () => {
     try {
       await submitContactForm(formData);
       setStatus('success');
-      setFormData({ name: '', email: '', company: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', company: '', message: '' });
     } catch (err) {
       console.error(err);
       setStatus('error');
@@ -78,6 +79,19 @@ const ContactForm: React.FC = () => {
             onChange={handleChange}
             className="w-full bg-suvora-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-suvora-primary focus:border-transparent transition-all outline-none"
             placeholder="example@company.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="phone" className="block text-sm font-medium text-slate-400 mb-1">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full bg-suvora-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-suvora-primary focus:border-transparent transition-all outline-none"
+            placeholder="+92 300 1234567"
           />
         </div>
 

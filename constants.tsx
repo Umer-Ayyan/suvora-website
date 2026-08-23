@@ -1,4 +1,6 @@
 import { SiteConfig, ServiceItem, CaseStudy, TeamMember, HeroSettings, TechItem } from './types';
+export const IS_INDEPENDENCE_DAY = false;
+
 import React from 'react';
 import { 
   Code2, 

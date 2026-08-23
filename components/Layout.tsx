@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 import { Menu, X, Linkedin, Instagram, MessageCircle } from 'lucide-react';
+import CookieBanner from './CookieBanner';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,8 +21,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col font-sans text-slate-100 bg-suvora-900 selection:bg-suvora-primary selection:text-white">
       {/* Navigation */}
       {IS_INDEPENDENCE_DAY && (
-        <div className="bg-emerald-600 text-white text-center py-2 text-sm font-semibold tracking-wide shadow-md z-[60] relative">
-          🎉 Happy Independence Day! Celebrating Pakistan's 79th Independence 🇵🇰
+        <div className="bg-gradient-to-r from-emerald-700/80 via-green-600/80 to-emerald-700/80 backdrop-blur-lg border-b border-green-400/30 text-white text-center py-3 text-sm font-bold tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.4)] z-[60] relative flex items-center justify-center gap-2">
+          <span className="animate-bounce">🎉</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-green-100 to-white animate-pulse">
+            Happy Independence Day! Celebrating Pakistan's 79th Independence
+          </span>
+          <span className="animate-bounce">🇵🇰</span>
         </div>
       )}
       <nav 
@@ -163,6 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
         </div>
       </footer>
+      <CookieBanner />
     </div>
   );
 };
