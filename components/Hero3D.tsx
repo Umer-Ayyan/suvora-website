@@ -156,7 +156,7 @@ const Hero3D: React.FC<Hero3DProps> = ({ onLoad }) => {
         
         <Rig />
 
-        <EffectComposer disableNormalPass multisampling={0}>
+        <EffectComposer multisampling={0}>
             <Bloom 
                 luminanceThreshold={0.4} 
                 mipmapBlur 
