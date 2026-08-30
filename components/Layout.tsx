@@ -165,10 +165,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="flex gap-4 mt-4 md:mt-0">
                 <span>Privacy Policy</span>
                 <span>Terms of Service</span>
-                <span className="flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-green-500"></span>
-                    Systems Normal
-                </span>
             </div>
           </div>
         </div>
