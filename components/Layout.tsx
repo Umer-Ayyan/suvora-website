@@ -154,7 +154,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               </ul>
               <div className="mt-6">
                 <a href="https://rehbar.pk/" target="_blank" rel="noopener noreferrer">
-                  <img decoding="async" style={{ width: '250px', height: '200px' }} src="https://rehbar.pk/wp-content/uploads/2026/07/Rehbar-Badge-2.png" alt="Rehbar Badge" className="hover:opacity-90 transition-opacity" />
+                  <img decoding="async" style={{ width: '150px', height: 'auto' }} src="https://rehbar.pk/wp-content/uploads/2026/07/Rehbar-Badge-2.png" alt="Rehbar Badge" className="hover:opacity-90 transition-opacity" />
                 </a>
               </div>
             </div>
