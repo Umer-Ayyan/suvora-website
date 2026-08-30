@@ -63,18 +63,11 @@ const HeroSection: React.FC = () => {
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/20 rounded-full blur-[120px] pointer-events-none animate-pulse" />
         )}
         <div className="max-w-3xl relative z-10">
-          {IS_INDEPENDENCE_DAY ? (
+          {IS_INDEPENDENCE_DAY && (
             <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-green-400/50 bg-green-500/10 backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 mr-2 animate-ping" />
               <span className="text-green-300 text-sm font-bold tracking-widest uppercase">
                 79 Years of Independence 🇵🇰
-              </span>
-            </div>
-          ) : (
-            <div className="inline-flex items-center px-3 py-1 rounded-full border border-suvora-accent/30 bg-suvora-accent/10 backdrop-blur-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-suvora-accent mr-2 animate-pulse" />
-              <span className="text-suvora-accent text-xs font-mono tracking-widest uppercase">
-                System Online v2.0
               </span>
             </div>
           )}
