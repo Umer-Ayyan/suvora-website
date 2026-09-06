@@ -2,6 +2,7 @@ import Layout from '../components/Layout';
 import { Helmet } from 'react-helmet';
 import { useEffect, useState } from 'react';
 import PageSkeleton from '../components/PageSkeleton';
+import { Mail, MapPin } from 'lucide-react';
 const Legal = () => {
     const [loading, setLoading] = useState(true);
 
@@ -108,11 +109,11 @@ useEffect(() => {
 
               <div className="space-y-2 text-lg">
                 <p>
-                  📧 teams@suvora.tech
+                  <Mail className="w-5 h-5 inline mr-2 text-suvora-primary" /> teams@suvora.tech
                 </p>
 
                 <p>
-                  📍 Karachi, Pakistan
+                  <MapPin className="w-5 h-5 inline mr-2 text-suvora-primary" /> Karachi, Pakistan
                 </p>
               </div>
 

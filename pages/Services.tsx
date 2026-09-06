@@ -2,6 +2,7 @@ import Layout from '../components/Layout';
 import { Helmet } from 'react-helmet';
 import { useEffect, useState } from 'react';
 import PageSkeleton from '../components/PageSkeleton';
+import { Globe, Palette, Cpu, Smartphone, Cloud, Rocket } from 'lucide-react';
 const Services = () => {
 const [loading, setLoading] = useState(true);
 
@@ -54,7 +55,7 @@ useEffect(() => {
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
               
               <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                🌐
+                <Globe className="w-8 h-8 text-suvora-primary" />
               </div>
 
               <h2 className="text-2xl font-bold mb-4">
@@ -80,7 +81,7 @@ useEffect(() => {
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
               
               <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                🎨
+                <Palette className="w-8 h-8 text-suvora-primary" />
               </div>
 
               <h2 className="text-2xl font-bold mb-4">
@@ -104,7 +105,7 @@ useEffect(() => {
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
               
               <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                🤖
+                <Cpu className="w-8 h-8 text-suvora-primary" />
               </div>
 
               <h2 className="text-2xl font-bold mb-4">
@@ -129,7 +130,7 @@ useEffect(() => {
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
               
               <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                📱
+                <Smartphone className="w-8 h-8 text-suvora-primary" />
               </div>
 
               <h2 className="text-2xl font-bold mb-4">
@@ -154,7 +155,7 @@ useEffect(() => {
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
               
               <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                ☁️
+                <Cloud className="w-8 h-8 text-suvora-primary" />
               </div>
 
               <h2 className="text-2xl font-bold mb-4">
@@ -179,7 +180,7 @@ useEffect(() => {
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
               
               <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                🚀
+                <Rocket className="w-8 h-8 text-suvora-primary" />
               </div>
 
               <h2 className="text-2xl font-bold mb-4">
