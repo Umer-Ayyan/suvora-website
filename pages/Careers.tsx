@@ -100,7 +100,7 @@ const Careers = () => {
                       </span>
                     </div>
                     <a
-                      href={job.applyUrl}
+                      href={job.applyUrl.replace('https://suvora-crm.vercel.app', 'https://crm.suvora.tech')}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block px-8 py-3.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl text-center whitespace-nowrap"
