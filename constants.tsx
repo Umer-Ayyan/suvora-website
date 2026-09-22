@@ -15,31 +15,31 @@ import {
 } from 'lucide-react';
 
 export const SUVORA_CONFIG: SiteConfig = {
-  brandName: 'Suvora',
-  tagline: 'We build the future, in code.',
+  brandName: 'Suvora Tech',
+  tagline: 'Engineering Digital Transformation.',
   contactEmail: 'teams@suvora.tech',
   navLinks: [
-  { label: 'Home', href: '/' },
-  { label: 'Products', href: '/#products' },
-  { label: 'Services', href: '/services' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'About', href: '/about' },
-  { label: 'Careers', href: '/careers' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Blog', href: '/blog' },
-],
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/#products' },
+    { label: 'Capabilities', href: '/services' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'About', href: '/about' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'Insights', href: '/blog' },
+  ],
   colors: {
-    primary: '#7c5cff',
-    secondary: '#4bd3ff',
-    background: '#050510',
+    primary: '#2563eb',
+    secondary: '#0284c7',
+    background: '#080e1a',
   },
 };
 
 export const HERO_SETTINGS: HeroSettings = {
-  bloomIntensity: 1.5,
-  rotationSpeed: 0.2,
-  coreColor: '#7c5cff',
-  satelliteColor: '#4bd3ff',
+  bloomIntensity: 1.2,
+  rotationSpeed: 0.15,
+  coreColor: '#2563eb',
+  satelliteColor: '#38bdf8',
 };
 
 // Map icon names to components for rendering
@@ -55,27 +55,27 @@ export const ICON_MAP: Record<string, React.ReactNode> = {
 export const SERVICES: ServiceItem[] = [
   {
     id: '1',
-    title: 'Web Development',
-    description: 'High-performance Next.js applications optimized for SEO and conversion.',
+    title: 'Digital Engineering',
+    description: 'Scalable Next.js web applications, enterprise portals, and robust architectures engineered for mission-critical operations.',
     iconName: 'web',
   },
   {
     id: '2',
-    title: 'Mobile App Dev',
-    description: 'Native-feel cross-platform apps using React Native and Flutter.',
-    iconName: 'mobile',
+    title: 'Enterprise ERP & Systems',
+    description: 'Multi-tenant ERP implementations, tailored workflow automation, and custom business application engineering.',
+    iconName: 'backend',
   },
   {
     id: '3',
-    title: 'UI/UX Design',
-    description: 'Futuristic, accessible interfaces that guide user behavior and delight eyes.',
-    iconName: 'design',
+    title: 'Cloud Infrastructure & DevOps',
+    description: 'Resilient cloud migrations, automated CI/CD pipelines, and high-availability AWS/GCP infrastructure management.',
+    iconName: 'cloud',
   },
   {
     id: '4',
-    title: 'Cloud & DevOps',
-    description: 'Scalable AWS/GCP infrastructure with automated CI/CD pipelines.',
-    iconName: 'cloud',
+    title: 'Applied AI & Automation',
+    description: 'Enterprise AI integrations, intelligent document automation, predictive analytics, and intelligent workflow assistants.',
+    iconName: 'security',
   },
 ];
 

@@ -1,251 +1,159 @@
 import Layout from '../components/Layout';
 import { Helmet } from 'react-helmet';
-import { useEffect, useState } from 'react';
-import PageSkeleton from '../components/PageSkeleton';
+import React from 'react';
 import { Globe, Palette, Cpu, Smartphone, Cloud, Rocket } from 'lucide-react';
+
 const Services = () => {
   return (
     <Layout>
-        <Helmet>
-  <title>Software Development Services Pakistan | Web, AI, Mobile Apps | Suvora Tech Karachi</title>
-  <meta name="description" content="Suvora Tech offers web development, mobile apps, AI solutions, ERP software and SaaS development in Pakistan. Top software house in Karachi." />
-  <meta name="keywords" content="web development Pakistan, software development Karachi, mobile app development Pakistan, AI solutions Pakistan, ERP software Pakistan, SaaS development Pakistan, software house Karachi" />
-  <link rel="canonical" href="https://suvora.tech/services" />
-  <meta property="og:title" content="Software Development Services Pakistan | Suvora Tech" />
-  <meta property="og:description" content="Web development, mobile apps, AI solutions and ERP software by Suvora Tech, modern software house in Karachi, Pakistan." />
-  <meta property="og:url" content="https://suvora.tech/services" />
-</Helmet>
+      <Helmet>
+        <title>Enterprise Software Development &amp; Cloud Capabilities | Suvora Tech</title>
+        <meta name="description" content="Suvora Tech delivers enterprise software development, cloud infrastructure, AI solutions, and ERP engineering in Pakistan and globally." />
+        <meta name="keywords" content="enterprise software Pakistan, cloud consulting Karachi, mobile app development Pakistan, AI solutions Pakistan, ERP software Pakistan, software house Karachi" />
+        <link rel="canonical" href="https://suvora.tech/services" />
+      </Helmet>
 
-      <div className="min-h-screen bg-suvora-900 text-white">
-
+      <div className="min-h-screen bg-[#080e1a] text-white">
         {/* Hero Section */}
-        <section className="py-28 px-6 border-b border-slate-800">
+        <section className="py-24 px-6 border-b border-slate-800/80">
           <div className="max-w-6xl mx-auto text-center">
+            <span className="text-xs font-mono text-sky-400 uppercase tracking-widest mb-3 inline-block">
+              Strategic Capabilities
+            </span>
 
-            <p className="text-suvora-accent uppercase tracking-[0.3em] text-sm mb-4">
-              Our Services
-            </p>
-
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              Digital Solutions
-              <span className="text-suvora-primary"> That Scale</span>
+            <h1 className="text-4xl sm:text-6xl font-display font-bold leading-tight mb-6">
+              Enterprise Engineering <br />
+              <span className="text-blue-500">Built to Scale</span>
             </h1>
 
-            <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
-              We help startups and businesses build modern digital products
-              with powerful technology, premium design, and scalable systems.
+            <p className="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+              We partner with ambitious enterprises and scaling organizations to architect, build, and deploy resilient digital platforms, cloud infrastructure, and intelligent automation.
             </p>
-
           </div>
         </section>
 
         {/* Services Grid */}
         <section className="py-24 px-6">
           <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {/* Service Card */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
-              
-              <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                <Globe className="w-8 h-8 text-suvora-primary" />
+            
+            {/* Service Card 1 */}
+            <div className="bg-[#0f1a2e] border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-950/20 group">
+              <div className="w-14 h-14 rounded-xl bg-[#080e1a] border border-slate-800 flex items-center justify-center mb-6">
+                <Globe className="w-7 h-7 text-sky-400" />
               </div>
-
-              <h2 className="text-2xl font-bold mb-4">
-                Web Development
-              </h2>
-
-              <p className="text-slate-400 leading-relaxed mb-6">
-                High-performance websites and scalable web applications
-                built with modern technologies like React, Next.js,
-                and TypeScript.
+              <h2 className="text-xl font-bold mb-3 font-display">Digital Engineering</h2>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                High-throughput web applications, enterprise portals, and headless architectures engineered with Next.js, React, and TypeScript.
               </p>
-
-              <a
-                href="/contact"
-                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
-              >
-                Discuss Web Project
-              </a>
-
-            </div>
-
-            {/* Service Card */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
-              
-              <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                <Palette className="w-8 h-8 text-suvora-primary" />
-              </div>
-
-              <h2 className="text-2xl font-bold mb-4">
-                UI/UX Design
-              </h2>
-
-              <p className="text-slate-400 leading-relaxed mb-6">
-                Elegant and user-focused interfaces designed to improve
-                engagement, usability, and overall digital experience.
-              </p>
-
-              <a
-                href="/contact"
-                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
-              >
-                Request Design Review
+              <a href="/contact" className="text-sky-400 font-semibold hover:text-white transition-all text-xs uppercase tracking-wider">
+                Discuss Web Architecture &rarr;
               </a>
             </div>
 
-            {/* Service Card */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
-              
-              <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                <Cpu className="w-8 h-8 text-suvora-primary" />
+            {/* Service Card 2 */}
+            <div className="bg-[#0f1a2e] border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-950/20 group">
+              <div className="w-14 h-14 rounded-xl bg-[#080e1a] border border-slate-800 flex items-center justify-center mb-6">
+                <Cloud className="w-7 h-7 text-sky-400" />
               </div>
-
-              <h2 className="text-2xl font-bold mb-4">
-                AI Solutions
-              </h2>
-
-              <p className="text-slate-400 leading-relaxed mb-6">
-                AI-powered systems, automation tools, chatbots,
-                and intelligent workflows designed for modern businesses.
+              <h2 className="text-xl font-bold mb-3 font-display">Enterprise Cloud &amp; DevOps</h2>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                High-availability cloud migrations, automated CI/CD deployment pipelines, container orchestration, and serverless infrastructure.
               </p>
-
-              <a
-                href="/contact"
-                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
-              >
-                Explore AI Integration
+              <a href="/contact" className="text-sky-400 font-semibold hover:text-white transition-all text-xs uppercase tracking-wider">
+                Consult on Cloud Architecture &rarr;
               </a>
-
             </div>
 
-            {/* Service Card */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
-              
-              <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                <Smartphone className="w-8 h-8 text-suvora-primary" />
+            {/* Service Card 3 */}
+            <div className="bg-[#0f1a2e] border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-950/20 group">
+              <div className="w-14 h-14 rounded-xl bg-[#080e1a] border border-slate-800 flex items-center justify-center mb-6">
+                <Cpu className="w-7 h-7 text-sky-400" />
               </div>
-
-              <h2 className="text-2xl font-bold mb-4">
-                Mobile Apps
-              </h2>
-
-              <p className="text-slate-400 leading-relaxed mb-6">
-                Cross-platform mobile applications with premium UI,
-                smooth performance, and scalable backend systems.
+              <h2 className="text-xl font-bold mb-3 font-display">Applied AI &amp; Automation</h2>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                Enterprise AI integration, custom conversational assistants, document parsing pipelines, and intelligent operational workflows.
               </p>
-
-              <a
-                href="/contact"
-                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
-              >
-                Plan Mobile App
+              <a href="/contact" className="text-sky-400 font-semibold hover:text-white transition-all text-xs uppercase tracking-wider">
+                Explore AI Integration &rarr;
               </a>
-
             </div>
 
-            {/* Service Card */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
-              
-              <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                <Cloud className="w-8 h-8 text-suvora-primary" />
+            {/* Service Card 4 */}
+            <div className="bg-[#0f1a2e] border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-950/20 group">
+              <div className="w-14 h-14 rounded-xl bg-[#080e1a] border border-slate-800 flex items-center justify-center mb-6">
+                <Smartphone className="w-7 h-7 text-sky-400" />
               </div>
-
-              <h2 className="text-2xl font-bold mb-4">
-                Cloud Infrastructure
-              </h2>
-
-              <p className="text-slate-400 leading-relaxed mb-6">
-                Secure cloud deployment, server management,
-                CI/CD pipelines, and enterprise-grade scalability solutions.
+              <h2 className="text-xl font-bold mb-3 font-display">Cross-Platform Mobile</h2>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                Production-grade mobile applications for iOS and Android built on React Native and Flutter with real-time enterprise sync.
               </p>
-
-              <a
-                href="/contact"
-                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
-              >
-                Consult on Cloud Architecture
+              <a href="/contact" className="text-sky-400 font-semibold hover:text-white transition-all text-xs uppercase tracking-wider">
+                Plan Mobile Build &rarr;
               </a>
-
             </div>
 
-            {/* Service Card */}
-            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-suvora-primary transition-all group">
-              
-              <div className="w-16 h-16 rounded-2xl bg-slate-800 flex items-center justify-center mb-6 text-3xl">
-                <Rocket className="w-8 h-8 text-suvora-primary" />
+            {/* Service Card 5 */}
+            <div className="bg-[#0f1a2e] border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-950/20 group">
+              <div className="w-14 h-14 rounded-xl bg-[#080e1a] border border-slate-800 flex items-center justify-center mb-6">
+                <Palette className="w-7 h-7 text-sky-400" />
               </div>
-
-              <h2 className="text-2xl font-bold mb-4">
-                Startup MVPs
-              </h2>
-
-              <p className="text-slate-400 leading-relaxed mb-6">
-                Rapid MVP development for startups looking to launch,
-                validate ideas, and scale products faster.
+              <h2 className="text-xl font-bold mb-3 font-display">Enterprise UI/UX Design</h2>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                User-centered design systems, data dashboard interfaces, and interactive prototypes built for complex enterprise workflows.
               </p>
-
-              <a
-                href="/contact"
-                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
-              >
-                Build Your MVP
+              <a href="/contact" className="text-sky-400 font-semibold hover:text-white transition-all text-xs uppercase tracking-wider">
+                Request Design Review &rarr;
               </a>
+            </div>
 
+            {/* Service Card 6 */}
+            <div className="bg-[#0f1a2e] border border-slate-800 rounded-2xl p-8 hover:border-blue-500/50 transition-all hover:shadow-xl hover:shadow-blue-950/20 group">
+              <div className="w-14 h-14 rounded-xl bg-[#080e1a] border border-slate-800 flex items-center justify-center mb-6">
+                <Rocket className="w-7 h-7 text-sky-400" />
+              </div>
+              <h2 className="text-xl font-bold mb-3 font-display">Custom ERP Implementation</h2>
+              <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                Tailored rollout of FlowERP and custom ERP extensions covering multi-branch inventory, manufacturing, accounting, and supply chain.
+              </p>
+              <a href="/contact" className="text-sky-400 font-semibold hover:text-white transition-all text-xs uppercase tracking-wider">
+                Consult on ERP Rollout &rarr;
+              </a>
             </div>
 
           </div>
         </section>
 
+        {/* Enterprise FAQ */}
+        <section className="py-24 px-6 bg-[#050914] border-t border-slate-800/80">
+          <div className="max-w-4xl mx-auto">
+            <span className="text-xs font-mono text-sky-400 uppercase tracking-widest mb-3 inline-block">Support &amp; FAQ</span>
+            <h2 className="text-3xl font-display font-bold text-white mb-10">Frequently Asked Inquiries</h2>
+
+            <div className="space-y-8">
+              <div className="p-6 rounded-xl bg-[#0f1a2e] border border-slate-800">
+                <h3 className="text-lg font-semibold text-white mb-2 font-display">What core services does Suvora Tech provide?</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  Suvora Tech delivers digital engineering, cloud ERP software (FlowERP), enterprise cloud &amp; DevOps, mobile applications, and applied AI systems for companies across Pakistan and international markets.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-xl bg-[#0f1a2e] border border-slate-800">
+                <h3 className="text-lg font-semibold text-white mb-2 font-display">Do you support international clients and distributed teams?</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  Yes. We operate as a trusted remote engineering partner for startups and enterprises across the UAE, UK, US, and Saudi Arabia, providing dedicated engineering pods and managed software delivery.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-xl bg-[#0f1a2e] border border-slate-800">
+                <h3 className="text-lg font-semibold text-white mb-2 font-display">How does FlowERP integration work for local businesses?</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">
+                  FlowERP includes 18 pre-configured industry workflows (textile, pharma, freight, distribution, restaurant) with full support for Pakistani tax requirements, localized invoicing, and PKR subscription pricing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    <section className="py-24 px-6">
-  <div className="max-w-5xl mx-auto">
-
-    <h2 className="text-4xl font-bold mb-12">
-      Frequently Asked Questions
-    </h2>
-
-    <div className="space-y-8">
-
-      <div>
-        <h3 className="text-2xl font-semibold mb-3">
-          What services does Suvora Tech provide?
-        </h3>
-
-        <p className="text-slate-400">
-          Suvora Tech provides web development,
-          AI solutions, SaaS development,
-          UI/UX design, mobile apps,
-          and cloud infrastructure services.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="text-2xl font-semibold mb-3">
-          Do you work with international clients?
-        </h3>
-
-        <p className="text-slate-400">
-          Yes, we work remotely with startups,
-          enterprises, and businesses globally.
-        </p>
-      </div>
-
-      <div>
-        <h3 className="text-2xl font-semibold mb-3">
-          Which technologies do you use?
-        </h3>
-
-        <p className="text-slate-400">
-          We use React, Next.js, TypeScript,
-          Node.js, Tailwind CSS, AI APIs,
-          and modern cloud platforms.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
     </Layout>
   );
 };

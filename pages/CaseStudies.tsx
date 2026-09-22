@@ -1,150 +1,137 @@
 import Layout from '../components/Layout';
 import { Helmet } from 'react-helmet';
-import { useEffect, useState } from 'react';
-import PageSkeleton from '../components/PageSkeleton';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+
 const CaseStudies = () => {
   return (
     <Layout>
-        <Helmet>
-  <title>Case Studies | Suvora Tech</title>
+      <Helmet>
+        <title>Client Case Studies &amp; Enterprise Deliveries | Suvora Tech</title>
+        <meta
+          name="description"
+          content="Explore enterprise case studies, cloud ERP implementations, and digital platforms engineered by Suvora Tech."
+        />
+      </Helmet>
 
-  <meta
-    name="description"
-    content="Explore successful projects, SaaS platforms, AI systems, and digital products built by Suvora Tech."
-  />
-</Helmet>
-      <div className="min-h-screen bg-suvora-900 text-white">
-
+      <div className="min-h-screen bg-[#080e1a] text-white">
         {/* Hero */}
-        <section className="py-28 px-6 border-b border-slate-800">
+        <section className="py-24 px-6 border-b border-slate-800/80">
           <div className="max-w-6xl mx-auto text-center">
+            <span className="text-xs font-mono text-sky-400 uppercase tracking-widest mb-3 inline-block">
+              Client Success
+            </span>
 
-            <p className="text-suvora-accent uppercase tracking-[0.3em] text-sm mb-4">
-              Our Work
-            </p>
-
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              Case
-              <span className="text-suvora-primary"> Studies</span>
+            <h1 className="text-4xl sm:text-6xl font-display font-bold leading-tight mb-6">
+              Case <span className="text-blue-500">Studies</span>
             </h1>
 
-            <p className="text-slate-400 text-lg max-w-3xl mx-auto">
-              We engineer scalable, high-performance digital experiences
-              for startups, enterprises, and ambitious brands worldwide.
+            <p className="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+              Explore how Suvora Tech designs, builds, and deploys high-performance software systems, ERP integrations, and cloud architectures for industry leaders.
             </p>
-
           </div>
         </section>
 
-        {/* Projects */}
+        {/* Projects Grid */}
         <section className="py-24 px-6">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
 
-            {/* Project Card */}
-            <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-suvora-primary transition-all group">
-
-              <div className="overflow-hidden">
+            {/* Project 1 */}
+            <div className="bg-[#0f1a2e] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all group">
+              <div className="overflow-hidden aspect-video bg-[#080e1a]">
                 <img
                   src="https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop"
-                  alt="Project"
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-all duration-700"
+                  alt="Enterprise AI SaaS Platform"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                  loading="lazy"
                 />
               </div>
 
               <div className="p-8">
-
-                <div className="flex gap-3 mb-5 flex-wrap">
-                  <span className="px-3 py-1 rounded-full bg-slate-800 text-sm">
-                    Web App
+                <div className="flex gap-2 mb-4 flex-wrap">
+                  <span className="px-3 py-1 rounded-full bg-blue-950/60 border border-blue-500/30 text-sky-300 text-xs font-medium">
+                    Enterprise SaaS
                   </span>
-
-                  <span className="px-3 py-1 rounded-full bg-slate-800 text-sm">
-                    AI
+                  <span className="px-3 py-1 rounded-full bg-blue-950/60 border border-blue-500/30 text-sky-300 text-xs font-medium">
+                    Cloud Architecture
                   </span>
                 </div>
 
-                <h2 className="text-3xl font-bold mb-4">
-                  AI SaaS Platform
+                <h2 className="text-2xl font-bold mb-3 font-display">
+                  Enterprise Cloud ERP &amp; Analytics Platform
                 </h2>
 
-                <p className="text-slate-400 leading-relaxed mb-6">
-                  Built a scalable AI-powered SaaS application with modern UI,
-                  real-time dashboards, and enterprise-grade infrastructure.
+                <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                  Engineered an enterprise-grade multi-tenant platform with automated financial workflows, real-time inventory tracking across distributed warehouses, and scalable role-based security.
                 </p>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pt-6 border-t border-slate-800">
                   <div>
-                    <p className="text-2xl font-bold text-suvora-primary">
+                    <p className="text-xl font-bold text-sky-400 font-display">
                       Multi-Tenant
                     </p>
-
-                    <p className="text-sm text-slate-400">
+                    <p className="text-xs text-slate-400 uppercase tracking-wider">
                       Architecture
                     </p>
                   </div>
 
-                  <a href="/contact" className="px-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-slate-200 transition-all text-sm">
-                    Inquire Build
+                  <a href="/contact" className="inline-flex items-center gap-1.5 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-semibold text-xs uppercase tracking-wider transition-all">
+                    <span>Discuss Solution</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
-
               </div>
             </div>
 
-            {/* Project Card */}
-            <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 hover:border-suvora-primary transition-all group">
-
-              <div className="overflow-hidden">
+            {/* Project 2 */}
+            <div className="bg-[#0f1a2e] rounded-2xl overflow-hidden border border-slate-800 hover:border-blue-500/50 transition-all group">
+              <div className="overflow-hidden aspect-video bg-[#080e1a]">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
-                  alt="Project"
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-all duration-700"
+                  alt="FinTech Analytics System"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                  loading="lazy"
                 />
               </div>
 
               <div className="p-8">
-
-                <div className="flex gap-3 mb-5 flex-wrap">
-                  <span className="px-3 py-1 rounded-full bg-slate-800 text-sm">
-                    Fintech
+                <div className="flex gap-2 mb-4 flex-wrap">
+                  <span className="px-3 py-1 rounded-full bg-blue-950/60 border border-blue-500/30 text-sky-300 text-xs font-medium">
+                    FinTech
                   </span>
-
-                  <span className="px-3 py-1 rounded-full bg-slate-800 text-sm">
-                    Dashboard
+                  <span className="px-3 py-1 rounded-full bg-blue-950/60 border border-blue-500/30 text-sky-300 text-xs font-medium">
+                    Streaming Data
                   </span>
                 </div>
 
-                <h2 className="text-3xl font-bold mb-4">
-                  Finance Analytics System
+                <h2 className="text-2xl font-bold mb-3 font-display">
+                  High-Throughput Financial Analytics Engine
                 </h2>
 
-                <p className="text-slate-400 leading-relaxed mb-6">
-                  Developed a modern financial dashboard with advanced analytics,
-                  reporting tools, and responsive data visualization.
+                <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                  Implemented a low-latency financial dashboard engine utilizing WebSockets, interactive charting pipelines, and secure transaction event sourcing.
                 </p>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between pt-6 border-t border-slate-800">
                   <div>
-                    <p className="text-2xl font-bold text-suvora-accent">
-                      Real-time
+                    <p className="text-xl font-bold text-sky-400 font-display">
+                      Sub-second
                     </p>
-
-                    <p className="text-sm text-slate-400">
-                      Streaming
+                    <p className="text-xs text-slate-400 uppercase tracking-wider">
+                      Event Pipeline
                     </p>
                   </div>
 
-                  <a href="/contact" className="px-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-slate-200 transition-all text-sm">
-                    Inquire Build
+                  <a href="/contact" className="inline-flex items-center gap-1.5 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-semibold text-xs uppercase tracking-wider transition-all">
+                    <span>Discuss Solution</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
-
               </div>
             </div>
 
           </div>
         </section>
-
       </div>
     </Layout>
   );
