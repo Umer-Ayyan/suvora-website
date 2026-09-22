@@ -223,7 +223,7 @@ const App: React.FC = () => {
               { title: 'Web Development Pakistan', desc: 'We build high-performance websites and web applications for Pakistani startups, SMEs and enterprises using React, Next.js and modern stacks.' },
               { title: 'ERP Software Pakistan', desc: 'FlowERP, our dedicated cloud ERP platform, serves Pakistani businesses with 18 industry presets. Textile, pharma, freight, manufacturing and more.' },
               { title: 'Mobile App Development', desc: 'Cross-platform mobile apps for Pakistani businesses. React Native and Flutter apps that work on Android and iOS.' },
-              { title: 'AI Solutions Pakistan', desc: 'AI-powered automation, chatbots, intelligent workflows and machine learning solutions for Pakistani companies looking to modernize.' },
+              { title: 'AI Solutions Pakistan', desc: 'Custom machine learning models, autonomous chatbots, and automated data pipelines tailored for Pakistani businesses.' },
               { title: 'SaaS Development Karachi', desc: 'End-to-end SaaS product development from architecture to deployment. We handle frontend, backend, database, cloud and DevOps.' },
               { title: 'Software House Karachi', desc: 'Based in Karachi, Pakistan. We understand local business needs including Urdu support, PKR pricing, Pakistani regulations and industry context.' },
             ].map(item => (

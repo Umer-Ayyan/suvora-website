@@ -105,8 +105,8 @@ const Services = () => {
               </h2>
 
               <p className="text-slate-400 leading-relaxed mb-6">
-                AI-powered systems, automation tools, chatbots,
-                and intelligent workflows designed for modern businesses.
+                Custom LLM integrations, document automation pipelines,
+                and task orchestration tailored for business operations.
               </p>
 
               <a

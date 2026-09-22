@@ -69,7 +69,7 @@ const HeroSection: React.FC = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-normal leading-relaxed">
-            {SUVORA_CONFIG.tagline} Custom software, ERP solutions, and modern web applications for growing businesses.
+            Custom software, ERP solutions, and modern web applications for growing businesses.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto">

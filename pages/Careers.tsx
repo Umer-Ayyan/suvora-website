@@ -20,7 +20,6 @@ const Careers = () => {
         setLoading(false);
       }, 1200);
 
-      // Fetch dynamic jobs from CRM
       const CRM_URL = 'https://suvora-crm.vercel.app';
       fetch(`${CRM_URL}/api/careers/jobs`)
         .then(res => res.json())
@@ -89,7 +88,7 @@ const Careers = () => {
               ) : jobsError ? (
                 <div className="text-center text-red-400 py-12">Unable to load positions.</div>
               ) : jobs.length === 0 ? (
-                <div className="text-center text-slate-400 py-12">Filhal koi open position mojood nahi hai. Dobara check karein!</div>
+                <div className="text-center text-slate-400 py-12">No open positions currently available. Check back soon for new opportunities.</div>
               ) : (
                 jobs.map((job, index) => (
                   <div key={job.id || index} className="p-6 md:p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-suvora-primary transition-all shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -105,7 +104,7 @@ const Careers = () => {
                       rel="noopener noreferrer"
                       className="inline-block px-8 py-3.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors rounded-xl text-center whitespace-nowrap"
                     >
-                      Apply Now &rarr;
+                      Apply Now
                     </a>
                   </div>
                 ))

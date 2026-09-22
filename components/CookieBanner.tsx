@@ -5,7 +5,6 @@ const CookieBanner: React.FC = () => {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    // Check if user has already accepted cookies
     const cookieConsent = localStorage.getItem('suvora_cookie_consent');
     if (!cookieConsent) {
       setShowBanner(true);
@@ -34,7 +33,7 @@ const CookieBanner: React.FC = () => {
               href="/legal" 
               className="flex-1 md:flex-none px-4 py-2.5 text-sm font-medium text-slate-300 hover:text-white bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors text-center"
             >
-              Learn More
+              Cookie Policy
             </a>
             <button 
               onClick={handleAccept}

@@ -7,9 +7,7 @@ import {
   Globe, 
   Smartphone, 
   Cloud, 
-  Palette, 
-  ArrowRight,
-  Sparkles
+  Palette 
 } from 'lucide-react';
 
 interface CarouselItem {
@@ -39,7 +37,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
   {
     id: 'ai',
     badge: 'APPLIED AI & AUTOMATION',
-    title: 'Intelligent AI Agents & Pipelines',
+    title: 'Autonomous AI Agents & ML Pipelines',
     description: 'Custom LLM agents, automated data parsing, and machine learning models engineered to streamline business operations and decision-making.',
     highlights: ['LLM Orchestration', 'Smart Workflows', 'Predictive Analytics'],
     icon: <Cpu className="w-6 h-6 text-cyan-400" />,
@@ -60,7 +58,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
     id: 'mobile',
     badge: 'MOBILE ENGINEERING',
     title: 'Cross-Platform Mobile Apps',
-    description: 'Native-feel iOS and Android applications developed with Flutter and React Native, delivering rich animations and offline-first data sync.',
+    description: 'Cross-platform iOS and Android applications developed with Flutter and React Native, delivering rich animations and offline-first data sync.',
     highlights: ['iOS & Android', 'Offline Capabilities', 'High Performance'],
     icon: <Smartphone className="w-6 h-6 text-sky-400" />,
     link: '/services',
@@ -70,7 +68,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
     id: 'cloud',
     badge: 'CLOUD & DEVOPS',
     title: 'Cloud Infrastructure & DevOps',
-    description: 'Battle-tested AWS and GCP cloud solutions featuring automated CI/CD pipelines, containerized microservices, and 99.9% uptime architectures.',
+    description: 'Battle-tested AWS and GCP cloud solutions featuring automated CI/CD pipelines, containerized microservices, and high-availability architecture.',
     highlights: ['AWS / GCP Cloud', 'Docker & Kubernetes', 'Automated CI/CD'],
     icon: <Cloud className="w-6 h-6 text-cyan-300" />,
     link: '/services',
@@ -80,7 +78,7 @@ const CAROUSEL_ITEMS: CarouselItem[] = [
     id: 'design',
     badge: 'PRODUCT DESIGN',
     title: 'UI/UX & Enterprise Design Systems',
-    description: 'Design systems and intuitive digital interfaces that combine clean aesthetics, seamless user journeys, and robust accessibility standards.',
+    description: 'Design systems and digital interfaces that combine clean typography, intuitive user flows, and WCAG accessibility standards.',
     highlights: ['Design Systems', 'Interactive Prototyping', 'WCAG Accessible'],
     icon: <Palette className="w-6 h-6 text-indigo-400" />,
     link: '/services',
@@ -95,7 +93,6 @@ const HeroCarousel: React.FC = () => {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
-  // Responsive items count per view
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -114,7 +111,6 @@ const HeroCarousel: React.FC = () => {
 
   const maxIndex = Math.max(0, CAROUSEL_ITEMS.length - itemsPerPage);
 
-  // Keep index within bounds on resize
   useEffect(() => {
     setCurrentIndex((prev) => Math.min(prev, maxIndex));
   }, [maxIndex]);
@@ -127,7 +123,6 @@ const HeroCarousel: React.FC = () => {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   }, [maxIndex]);
 
-  // Auto-play timer
   useEffect(() => {
     if (isHovered) return;
     const timer = setInterval(() => {
@@ -136,7 +131,6 @@ const HeroCarousel: React.FC = () => {
     return () => clearInterval(timer);
   }, [isHovered, handleNext]);
 
-  // Touch handlers for mobile swipe
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
   };
@@ -175,7 +169,7 @@ const HeroCarousel: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-mono tracking-widest uppercase mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Layers className="w-3.5 h-3.5" />
               <span>Capabilities &amp; Solutions</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white tracking-tight">
@@ -264,10 +258,9 @@ const HeroCarousel: React.FC = () => {
                     <a
                       href={item.link}
                       {...(item.isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors group/link"
+                      className="inline-flex items-center text-sm font-semibold text-sky-400 hover:text-sky-300 transition-colors"
                     >
                       <span>{item.linkText}</span>
-                      <ArrowRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
                     </a>
                   </div>
                 </div>

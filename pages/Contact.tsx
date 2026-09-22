@@ -3,7 +3,7 @@ import ContactForm from '../components/ContactForm';
 import { Helmet } from 'react-helmet';
 import { useEffect, useState } from 'react';
 import PageSkeleton from '../components/PageSkeleton';
-import { Mail, MapPin, Rocket } from 'lucide-react';
+import { Mail, MapPin, CheckCircle2 } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -100,7 +100,7 @@ const Contact = () => {
                 <div className="flex items-start gap-5 p-6 rounded-2xl bg-slate-900 border border-slate-800">
 
                   <div className="w-14 h-14 rounded-2xl bg-slate-800 flex items-center justify-center text-2xl">
-                    <Rocket className="w-6 h-6 text-suvora-primary" />
+                    <CheckCircle2 className="w-6 h-6 text-suvora-primary" />
                   </div>
 
                   <div>

@@ -8,10 +8,9 @@ import {
   Palette, 
   Cloud, 
   Database, 
-  ShieldCheck,
-  Cpu,
-  Globe,
-  Zap
+  ShieldCheck, 
+  Cpu, 
+  Globe 
 } from 'lucide-react';
 
 export const SUVORA_CONFIG: SiteConfig = {
@@ -42,7 +41,6 @@ export const HERO_SETTINGS: HeroSettings = {
   satelliteColor: '#38bdf8',
 };
 
-// Map icon names to components for rendering
 export const ICON_MAP: Record<string, React.ReactNode> = {
   'web': <Code2 className="w-8 h-8" />,
   'mobile': <Smartphone className="w-8 h-8" />,
@@ -62,13 +60,13 @@ export const SERVICES: ServiceItem[] = [
   {
     id: '2',
     title: 'Mobile App Dev',
-    description: 'Native-feel cross-platform apps using React Native and Flutter.',
+    description: 'Cross-platform mobile applications built with Flutter and React Native.',
     iconName: 'mobile',
   },
   {
     id: '3',
     title: 'UI/UX Design',
-    description: 'Futuristic, accessible interfaces that guide user behavior and delight eyes.',
+    description: 'Intuitive, accessible interfaces engineered for clarity and user engagement.',
     iconName: 'design',
   },
   {
