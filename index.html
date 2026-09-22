@@ -200,6 +200,38 @@
       ::-webkit-scrollbar-track { background: #080e1a; }
       ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes glowPulse {
+        0%, 100% {
+          filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.3));
+        }
+        50% {
+          filter: drop-shadow(0 0 28px rgba(37, 99, 235, 0.7));
+        }
+      }
+
+      .animate-future {
+        background-size: 200% auto;
+        animation: gradientFlow 4s ease infinite, glowPulse 4s ease-in-out infinite;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .animate-future {
+          animation: none;
+        }
+      }
     </style>
   <script type="importmap">
 {
