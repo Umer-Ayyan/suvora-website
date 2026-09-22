@@ -18,7 +18,7 @@ const KineticText: React.FC<KineticTextProps> = ({
   const [widths, setWidths] = useState<number[]>([]);
   const measureRef = useRef<HTMLDivElement | null>(null);
 
-  // Measure word widths for smooth width transitions
+  // Measure exact widths of each word using offscreen container
   useEffect(() => {
     const measure = () => {
       if (!measureRef.current) return;
@@ -32,14 +32,16 @@ const KineticText: React.FC<KineticTextProps> = ({
 
     measure();
     window.addEventListener('resize', measure);
-    const t = setTimeout(measure, 120);
+    const t1 = setTimeout(measure, 100);
+    const t2 = setTimeout(measure, 400);
     return () => {
       window.removeEventListener('resize', measure);
-      clearTimeout(t);
+      clearTimeout(t1);
+      clearTimeout(t2);
     };
   }, [words]);
 
-  // Word cycling timer
+  // Word cycling
   useEffect(() => {
     const timer = setInterval(() => {
       setPrevIndex(currentIndex);
@@ -65,7 +67,7 @@ const KineticText: React.FC<KineticTextProps> = ({
 
   return (
     <>
-      {/* Offscreen measuring container */}
+      {/* Hidden container to measure exact word widths with font inheritance */}
       <div
         ref={measureRef}
         aria-hidden="true"
@@ -73,31 +75,34 @@ const KineticText: React.FC<KineticTextProps> = ({
         style={{ font: 'inherit', letterSpacing: 'inherit' }}
       >
         {words.map((word) => (
-          <span key={word} className="inline-block px-1">
+          <span key={word} className="inline-block">
             {word}
           </span>
         ))}
       </div>
 
-      {/* Kinetic Text Viewport */}
+      {/* Kinetic Viewport with In-Flow Invisible Anchor for Perfect Baseline Alignment */}
       <span
         className="relative inline-block overflow-hidden align-baseline select-none"
         style={{
           width: currentWidth ? `${currentWidth}px` : 'auto',
-          height: '1.14em',
-          verticalAlign: '-0.16em',
-          transition: 'width 0.55s cubic-bezier(0.16, 1, 0.3, 1)',
+          transition: 'width 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
+        {/* Natural in-flow anchor (invisible) sets the exact line height and baseline */}
+        <span className="invisible opacity-0 select-none pointer-events-none block whitespace-nowrap" aria-hidden="true">
+          {words[currentIndex]}
+        </span>
+
         {/* Outgoing Word */}
         {prevIndex !== null && isTransitioning && (
           <span
             key={`prev-${words[prevIndex]}`}
-            className={`absolute left-0 top-0 inline-block text-transparent bg-clip-text bg-gradient-to-r ${gradientClass} whitespace-nowrap`}
+            className={`absolute left-0 top-0 bottom-0 flex items-center text-transparent bg-clip-text bg-gradient-to-r ${gradientClass} whitespace-nowrap`}
             style={{
               animation: 'kineticSlideOut 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards',
               willChange: 'transform, filter, opacity',
-              filter: 'drop-shadow(0 0 16px rgba(37, 99, 235, 0.4))',
+              filter: 'drop-shadow(0 0 16px rgba(37, 99, 235, 0.35))',
             }}
           >
             {words[prevIndex]}
@@ -107,11 +112,11 @@ const KineticText: React.FC<KineticTextProps> = ({
         {/* Incoming / Active Word */}
         <span
           key={`curr-${words[currentIndex]}`}
-          className={`absolute left-0 top-0 inline-block text-transparent bg-clip-text bg-gradient-to-r ${gradientClass} whitespace-nowrap`}
+          className={`absolute left-0 top-0 bottom-0 flex items-center text-transparent bg-clip-text bg-gradient-to-r ${gradientClass} whitespace-nowrap`}
           style={{
             animation: prevIndex !== null ? 'kineticSlideIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards' : 'none',
             willChange: 'transform, filter, opacity',
-            filter: 'drop-shadow(0 0 16px rgba(37, 99, 235, 0.4))',
+            filter: 'drop-shadow(0 0 16px rgba(37, 99, 235, 0.35))',
           }}
         >
           {words[currentIndex]}

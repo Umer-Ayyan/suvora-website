@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
         {IS_INDEPENDENCE_DAY && (
           <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-green-500/20 rounded-full blur-[120px] pointer-events-none animate-pulse" />
         )}
-        <div className="max-w-3xl relative z-10">
+        <div className="max-w-5xl relative z-10">
           {IS_INDEPENDENCE_DAY && (
             <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-green-400/50 bg-green-500/10 backdrop-blur-md mb-6 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
               <span className="w-2.5 h-2.5 rounded-full bg-green-400 mr-2 animate-ping" />
@@ -53,10 +53,12 @@ const HeroSection: React.FC = () => {
             </div>
           )}
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight tracking-tight">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-display font-bold text-white mb-6 leading-[1.12] tracking-tight">
             We build the <br />
-            <KineticText words={['future', 'software', 'systems', 'platforms', 'solutions']} />
-            <span>, in code.</span>
+            <span className="inline-flex items-baseline whitespace-nowrap">
+              <KineticText words={['future', 'software', 'systems', 'platforms', 'solutions']} />
+              <span>,&nbsp;in&nbsp;code.</span>
+            </span>
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-normal leading-relaxed">
