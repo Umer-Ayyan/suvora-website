@@ -28,9 +28,9 @@ type MorphingTextProps = Omit<HTMLMotionProps<'span'>, 'children'> & {
 function MorphingText({
   ref,
   text,
-  initial = { opacity: 0, scale: 0.9 },
-  animate = { opacity: 1, scale: 1 },
-  exit = { opacity: 0, scale: 0.9 },
+  initial = { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
+  animate = { opacity: 1, scale: 1, filter: 'blur(0px)' },
+  exit = { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
   variants,
   transition = { type: 'spring', stiffness: 125, damping: 25, mass: 0.4 },
   delay = 0,
@@ -113,7 +113,7 @@ function MorphingText({
           <motion.span
             key={char.layoutId}
             layoutId={char.layoutId}
-            style={{ display: 'inline-block' }}
+            style={{ display: 'inline-block', willChange: 'transform, filter, opacity' }}
             aria-hidden="true"
             initial={initial}
             animate={animate}

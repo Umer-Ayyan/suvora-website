@@ -60,9 +60,6 @@ const HeroSection: React.FC = () => {
             <span className="inline-flex items-baseline whitespace-nowrap">
               <MorphingText
                 className="inline-block text-sky-400 font-display font-bold"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
                 text={HERO_TEXTS}
                 loop={true}
                 holdDelay={2600}
