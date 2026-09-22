@@ -201,30 +201,20 @@
       ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
 
-      @keyframes gradientFlow {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      @keyframes glowPulse {
+      @keyframes futureTransform {
         0%, 100% {
-          filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.3));
+          transform: translateY(0px) scale(1);
         }
         50% {
-          filter: drop-shadow(0 0 28px rgba(37, 99, 235, 0.7));
+          transform: translateY(-10px) scale(1.04);
         }
       }
 
       .animate-future {
-        background-size: 200% auto;
-        animation: gradientFlow 4s ease infinite, glowPulse 4s ease-in-out infinite;
+        display: inline-block;
+        animation: futureTransform 3.5s ease-in-out infinite;
+        will-change: transform;
+        transform-origin: center;
       }
 
       @media (prefers-reduced-motion: reduce) {

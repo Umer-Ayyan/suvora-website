@@ -54,7 +54,7 @@ const HeroSection: React.FC = () => {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight tracking-tight">
             We build the <br />
-            <span className={`inline-block text-transparent bg-clip-text bg-gradient-to-r animate-future ${IS_INDEPENDENCE_DAY ? 'from-green-400 via-white to-green-500' : 'from-suvora-primary via-suvora-accent to-blue-600'}`}>future</span>, in code.
+            <span className={`inline-block text-transparent bg-clip-text bg-gradient-to-r animate-future cursor-default transition-transform hover:scale-110 ${IS_INDEPENDENCE_DAY ? 'from-green-400 via-white to-green-500' : 'from-suvora-primary to-suvora-accent'}`}>future</span>, in code.
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-normal leading-relaxed">
