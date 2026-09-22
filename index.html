@@ -200,6 +200,43 @@
       ::-webkit-scrollbar-track { background: #080e1a; }
       ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+
+      @keyframes kineticSlideOut {
+        0% {
+          transform: translateY(0);
+          filter: blur(0px);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-115%);
+          filter: blur(6px);
+          opacity: 0;
+        }
+      }
+
+      @keyframes kineticSlideIn {
+        0% {
+          transform: translateY(115%);
+          filter: blur(6px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        @keyframes kineticSlideOut {
+          0% { opacity: 1; }
+          100% { opacity: 0; }
+        }
+        @keyframes kineticSlideIn {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+      }
     </style>
   <script type="importmap">
 {

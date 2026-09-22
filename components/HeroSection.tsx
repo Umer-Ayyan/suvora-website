@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 import confetti from 'canvas-confetti';
-import ParticleText from './ParticleText';
+import KineticText from './KineticText';
 
 const HeroSection: React.FC = () => {
   useEffect(() => {
@@ -55,10 +55,8 @@ const HeroSection: React.FC = () => {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight tracking-tight">
             We build the <br />
-            <span className="inline-flex items-center flex-wrap">
-              <ParticleText words={['future', 'software', 'systems', 'platforms', 'solutions']} />
-              <span className="ml-1">, in code.</span>
-            </span>
+            <KineticText words={['future', 'software', 'systems', 'platforms', 'solutions']} />
+            <span>, in code.</span>
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-normal leading-relaxed">
