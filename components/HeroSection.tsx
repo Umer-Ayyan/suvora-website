@@ -59,13 +59,9 @@ const HeroSection: React.FC = () => {
             We build the <br />
             <span className="inline-flex items-baseline whitespace-nowrap">
               <MorphingText
-                className={`inline-block text-transparent bg-clip-text bg-gradient-to-r ${
-                  IS_INDEPENDENCE_DAY
-                    ? 'from-green-400 via-white to-green-500'
-                    : 'from-suvora-primary via-blue-500 to-suvora-accent'
-                }`}
+                className="inline-block text-sky-400 font-display font-bold"
                 style={{
-                  filter: 'drop-shadow(0 0 20px rgba(37, 99, 235, 0.35))',
+                  filter: 'drop-shadow(0 0 20px rgba(56, 189, 248, 0.5)) drop-shadow(0 0 40px rgba(37, 99, 235, 0.35))',
                 }}
                 text={HERO_TEXTS}
                 loop={true}
