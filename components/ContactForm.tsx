@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { submitContactForm, ContactFormData } from '../services/api';
-import { Send, Loader2, CheckCircle2 } from 'lucide-react';
+import { Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -32,7 +32,7 @@ const ContactForm: React.FC = () => {
 
   if (status === 'success') {
     return (
-      <div className="bg-suvora-800/50 backdrop-blur-md p-8 rounded-2xl border border-green-500/30 text-center animate-in fade-in zoom-in duration-300">
+      <div className="bg-suvora-800/50 p-8 rounded-2xl border border-green-500/30 text-center animate-in fade-in zoom-in duration-300">
         <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
         <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
         <p className="text-slate-300 mb-6">Thank you for reaching out. Our team will review your project and get back to you within 24 hours.</p>
@@ -47,11 +47,18 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-suvora-800/50 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-slate-800 shadow-2xl relative overflow-hidden">
-      {/* Decorative gradient blob */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-suvora-primary/20 rounded-full blur-3xl pointer-events-none" />
-
+    <form onSubmit={handleSubmit} className="bg-suvora-800/50 p-6 md:p-8 rounded-2xl border border-slate-800 shadow-xl relative">
       <h3 className="text-2xl font-display font-bold text-white mb-6">Start a Project</h3>
+      
+      {status === 'error' && (
+        <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-red-400" />
+          <div>
+            <p className="font-semibold text-white">Message could not be sent</p>
+            <p className="text-xs text-slate-300 mt-1">Please try again or email us directly at <a href="mailto:teams@suvora.tech" className="text-suvora-accent underline">teams@suvora.tech</a>.</p>
+          </div>
+        </div>
+      )}
       
       <div className="space-y-4">
         <div>
@@ -128,7 +135,7 @@ const ContactForm: React.FC = () => {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="w-full bg-gradient-to-r from-suvora-primary to-suvora-accent text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(124,92,255,0.4)] transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full bg-gradient-to-r from-suvora-primary to-suvora-accent text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-95 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {status === 'submitting' ? (
             <>

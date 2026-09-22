@@ -55,9 +55,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             ))}
             <a 
   href="/contact" 
-  className="px-5 py-2.5 text-sm font-bold bg-white text-suvora-900 rounded hover:bg-slate-200 transition-colors"
+  className="px-5 py-2.5 text-sm font-semibold bg-white text-suvora-900 rounded-lg hover:bg-slate-200 transition-colors"
 >
-  Get Started
+  Contact Us
 </a>
           </div>
 
@@ -98,20 +98,21 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
-               <a href="#" className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2 mb-6">
+               <a href="/" className="text-2xl font-display font-bold tracking-tighter flex items-center gap-2 mb-6">
                 <div className="w-6 h-6 rounded bg-gradient-to-br from-suvora-primary to-suvora-accent" />
                 {SUVORA_CONFIG.brandName}
               </a>
               <p className="text-slate-400 max-w-sm mb-6">
-                We design and engineer digital products that define the future. 
-                Built with performance, accessibility, and aesthetics in mind.
+                We design and engineer reliable digital products and business systems. 
+                Built for performance, scalability, and clean user experience.
               </p>
               <div className="flex gap-4">
   <a 
     href="https://wa.me/923140258385"
     target="_blank"
+    rel="noopener noreferrer"
     aria-label="WhatsApp"
-    className="text-slate-500 hover:text-white transition-colors"
+    className="text-slate-400 hover:text-white transition-colors"
   >
     <MessageCircle className="w-5 h-5" />
   </a>
@@ -119,8 +120,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   <a 
     href="https://instagram.com/suvora.tech/"
     target="_blank"
+    rel="noopener noreferrer"
     aria-label="Instagram"
-    className="text-slate-500 hover:text-white transition-colors"
+    className="text-slate-400 hover:text-white transition-colors"
   >
     <Instagram className="w-5 h-5" />
   </a>
@@ -128,8 +130,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   <a 
     href="https://linkedin.com/company/suvora-tech/"
     target="_blank"
+    rel="noopener noreferrer"
     aria-label="LinkedIn"
-    className="text-slate-500 hover:text-white transition-colors"
+    className="text-slate-400 hover:text-white transition-colors"
   >
     <Linkedin className="w-5 h-5" />
   </a>
@@ -160,11 +163,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
           </div>
           
-          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
+          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
             <p>&copy; {new Date().getFullYear()} Suvora Inc. All rights reserved.</p>
             <div className="flex gap-4 mt-4 md:mt-0">
-                <span>Privacy Policy</span>
-                <span>Terms of Service</span>
+                <a href="/legal" className="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                <a href="/legal" className="hover:text-slate-300 transition-colors">Terms of Service</a>
             </div>
           </div>
         </div>

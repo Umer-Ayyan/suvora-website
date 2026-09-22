@@ -16,16 +16,13 @@ const App: React.FC = () => {
 
       <HeroSection />
 
-      {/* Our Products — FlowERP */}
+      {/* Our Products: FlowERP */}
       <section id="products" className="py-24 bg-slate-950 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-violet-600/10 rounded-full blur-3xl" />
-        </div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-mono text-suvora-accent uppercase tracking-widest">Our Products</span>
             <h2 className="text-3xl md:text-5xl font-display font-bold mt-3 mb-4">Built in Pakistan, <span className="text-suvora-primary">for Pakistan</span></h2>
-            <p className="text-slate-400 text-lg">We don't just build for clients — we ship our own products too.</p>
+            <p className="text-slate-400 text-lg">We don't just build for clients, we ship our own products too.</p>
           </div>
 
           {/* FlowERP Card */}
@@ -42,7 +39,7 @@ const App: React.FC = () => {
                 rel="noopener noreferrer"
                 className="px-5 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-sm font-semibold text-white transition-colors"
               >
-                Try Free →
+                Explore FlowERP
               </a>
             </div>
 
@@ -53,9 +50,9 @@ const App: React.FC = () => {
                   <span key={t} className="text-xs px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/25 text-violet-300">{t}</span>
                 ))}
               </div>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Pakistan's #1 Cloud ERP Software</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3">Cloud ERP Software for Pakistani Businesses</h3>
               <p className="text-slate-400 leading-relaxed mb-6">
-                FlowERP is a full-stack multi-tenant ERP SaaS built specifically for Pakistani SMEs. Covers Sales, Inventory, Finance, HR, CRM, Manufacturing, Freight Forwarding, Restaurant POS, and Indenting — with 18 industry presets and PKR pricing.
+                FlowERP is a full-stack multi-tenant ERP SaaS built specifically for Pakistani SMEs. Covers Sales, Inventory, Finance, HR, CRM, Manufacturing, Freight Forwarding, Restaurant POS, and Indenting, with 18 industry presets and PKR pricing.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
@@ -103,10 +100,10 @@ const App: React.FC = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
                     <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">Case Studies</h2>
-                    <p className="text-slate-400">Transforming industries through code.</p>
+                    <p className="text-slate-400">Engineering solutions that solve real business problems.</p>
                 </div>
-                <a href="#" className="flex items-center gap-2 text-suvora-accent font-medium hover:text-white transition-colors">
-                    View Case Studies <ArrowRight className="w-4 h-4" />
+                <a href="/case-studies" className="flex items-center gap-2 text-suvora-accent font-medium hover:text-white transition-colors">
+                    View All Case Studies
                 </a>
             </div>
 
@@ -141,12 +138,12 @@ const App: React.FC = () => {
                             <div className="grid grid-cols-2 gap-6 border-t border-slate-800 pt-6">
                                 <div>
                                     <div className="text-2xl font-bold text-white mb-1">{study.impact}</div>
-                                    <div className="text-xs text-slate-500 uppercase tracking-wider">Key Result</div>
+                                    <div className="text-xs text-slate-500 uppercase tracking-wider">Highlight</div>
                                 </div>
                                 <div className="flex items-center justify-end">
-                                    <button className="flex items-center gap-2 text-white border-b border-white hover:text-suvora-primary hover:border-suvora-primary transition-colors pb-1">
-                                        Read Case Study <ArrowRight className="w-4 h-4" />
-                                    </button>
+                                    <a href="/case-studies" className="flex items-center gap-2 text-white border-b border-white hover:text-suvora-primary hover:border-suvora-primary transition-colors pb-1">
+                                        Read Case Study
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -176,19 +173,19 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-16 mb-20">
                 <div>
-                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">The Collective</h2>
+                    <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Our Team</h2>
                     <p className="text-lg text-slate-400 leading-relaxed">
-                        Suvora isn't just a software shop. We are a collective of engineers, artists, and strategists obsessed with the bleeding edge of web technology. We believe code is the clay of the 21st century.
+                        Suvora Tech is an engineering studio delivering modern web applications, ERP systems, and cloud software. We focus on maintainable code, responsive user experiences, and scalable architecture.
                     </p>
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                     <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
                         <div className="text-4xl font-bold text-suvora-primary mb-2">15+</div>
-                        <div className="text-sm text-slate-500">Projects Delivered</div>
+                        <div className="text-sm text-slate-400">Projects Delivered</div>
                     </div>
                     <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
                         <div className="text-4xl font-bold text-suvora-accent mb-2">2</div>
-                        <div className="text-sm text-slate-500">Global Hubs</div>
+                        <div className="text-sm text-slate-400">Locations</div>
                     </div>
                 </div>
             </div>
@@ -208,23 +205,23 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Why Suvora — Pakistan SEO section */}
+      {/* Why Suvora: Pakistan Software House */}
       <section className="py-20 bg-suvora-900 border-t border-slate-900">
         <div className="container mx-auto px-6 max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4 text-center">
             Pakistan's Modern Software House
           </h2>
           <p className="text-slate-400 text-center max-w-2xl mx-auto mb-14 text-lg">
-            Suvora Tech is based in Karachi and serves businesses across Pakistan — Lahore, Islamabad, Faisalabad, and globally.
+            Suvora Tech is based in Karachi and serves businesses across Pakistan (Lahore, Islamabad, Faisalabad) and globally.
           </p>
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               { title: 'Web Development Pakistan', desc: 'We build high-performance websites and web applications for Pakistani startups, SMEs and enterprises using React, Next.js and modern stacks.' },
-              { title: 'ERP Software Pakistan', desc: 'FlowERP — our own cloud ERP — serves Pakistani businesses with 18 industry presets. Textile, pharma, freight, manufacturing and more.' },
+              { title: 'ERP Software Pakistan', desc: 'FlowERP, our dedicated cloud ERP platform, serves Pakistani businesses with 18 industry presets. Textile, pharma, freight, manufacturing and more.' },
               { title: 'Mobile App Development', desc: 'Cross-platform mobile apps for Pakistani businesses. React Native and Flutter apps that work on Android and iOS.' },
               { title: 'AI Solutions Pakistan', desc: 'AI-powered automation, chatbots, intelligent workflows and machine learning solutions for Pakistani companies looking to modernize.' },
-              { title: 'SaaS Development Karachi', desc: 'End-to-end SaaS product development — from idea to launch. We handle frontend, backend, database, cloud and DevOps.' },
-              { title: 'Software House Karachi', desc: 'Based in Karachi, Pakistan. We understand local business needs — Urdu support, PKR pricing, Pakistani regulations and industry context.' },
+              { title: 'SaaS Development Karachi', desc: 'End-to-end SaaS product development from architecture to deployment. We handle frontend, backend, database, cloud and DevOps.' },
+              { title: 'Software House Karachi', desc: 'Based in Karachi, Pakistan. We understand local business needs including Urdu support, PKR pricing, Pakistani regulations and industry context.' },
             ].map(item => (
               <div key={item.title} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-suvora-primary/40 transition-all">
                 <h3 className="font-bold text-white mb-2 text-base">{item.title}</h3>
@@ -234,17 +231,17 @@ const App: React.FC = () => {
           </div>
           <div className="text-center">
             <a href="/contact" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-suvora-primary hover:bg-violet-500 text-white font-semibold transition-colors">
-              Get a Free Quote →
+              Get a Free Quote
             </a>
-            <p className="text-slate-600 text-sm mt-3">We respond within 24 hours · teams@suvora.tech</p>
+            <p className="text-slate-500 text-sm mt-3">We respond within 24 hours · teams@suvora.tech</p>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-slate-950 relative overflow-hidden">
-        {/* Abstract Background for Contact */}
-        <div className="absolute inset-0 z-0">
+        {/* Background gradient */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
              <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-suvora-900 via-transparent to-transparent" />
         </div>
 
@@ -252,10 +249,10 @@ const App: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 leading-tight">
-                        Ready to build <br /> the <span className="text-suvora-accent">impossible?</span>
+                        Ready to build <br /> your next <span className="text-suvora-accent">digital product?</span>
                     </h2>
                     <p className="text-xl text-slate-400 mb-8 max-w-md">
-                        Let's discuss your technical challenges. Whether you need a high-performance web app or a complete digital transformation.
+                        Let's discuss your technical requirements. Whether you need a high-performance web app or a complete software architecture.
                     </p>
                     
                     <div className="space-y-6">

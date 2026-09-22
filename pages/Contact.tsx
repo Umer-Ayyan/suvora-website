@@ -6,13 +6,6 @@ import PageSkeleton from '../components/PageSkeleton';
 import { Mail, MapPin, Rocket } from 'lucide-react';
 
 const Contact = () => {
-    const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-  setTimeout(() => {
-    setLoading(false);
-  }, 1200);
-}, []);
   return (
     <Layout>
         <Helmet>
@@ -20,7 +13,7 @@ useEffect(() => {
 
   <meta
     name="description"
-    content="Contact Suvora Tech — software house in Karachi, Pakistan. Get a free quote for web development, ERP software, mobile apps or AI solutions."
+    content="Contact Suvora Tech: modern software house in Karachi, Pakistan. Get a free quote for web development, ERP software, mobile apps or AI solutions."
   />
 </Helmet>
       <div className="min-h-screen bg-suvora-900 text-white">
@@ -35,13 +28,12 @@ useEffect(() => {
 
             <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
               Let’s Build Something
-              <span className="text-suvora-primary"> Amazing</span>
+              <span className="text-suvora-primary"> Great</span>
             </h1>
 
             <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
-              Whether you need a modern website, scalable web application,
-              AI solution, or complete digital transformation —
-              our team is ready to help.
+              Whether you need a modern web application, ERP rollout,
+              or digital infrastructure, our team is ready to assist.
             </p>
 
           </div>

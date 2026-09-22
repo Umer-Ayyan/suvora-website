@@ -3,13 +3,6 @@ import { Helmet } from 'react-helmet';
 import { useEffect, useState } from 'react';
 import PageSkeleton from '../components/PageSkeleton';
 const CaseStudies = () => {
-    const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-  setTimeout(() => {
-    setLoading(false);
-  }, 1200);
-}, []);
   return (
     <Layout>
         <Helmet>
@@ -81,18 +74,18 @@ useEffect(() => {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-3xl font-bold text-suvora-primary">
-                      +240%
+                    <p className="text-2xl font-bold text-suvora-primary">
+                      Multi-Tenant
                     </p>
 
-                    <p className="text-sm text-slate-500">
-                      User Growth
+                    <p className="text-sm text-slate-400">
+                      Architecture
                     </p>
                   </div>
 
-                  <button className="px-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-slate-200 transition-all">
-                    View Project
-                  </button>
+                  <a href="/contact" className="px-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-slate-200 transition-all text-sm">
+                    Inquire Build
+                  </a>
                 </div>
 
               </div>
@@ -132,18 +125,18 @@ useEffect(() => {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-3xl font-bold text-suvora-accent">
-                      1M+
+                    <p className="text-2xl font-bold text-suvora-accent">
+                      Real-time
                     </p>
 
-                    <p className="text-sm text-slate-500">
-                      Transactions
+                    <p className="text-sm text-slate-400">
+                      Streaming
                     </p>
                   </div>
 
-                  <button className="px-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-slate-200 transition-all">
-                    View Project
-                  </button>
+                  <a href="/contact" className="px-6 py-3 bg-white text-black rounded-xl font-semibold hover:bg-slate-200 transition-all text-sm">
+                    Inquire Build
+                  </a>
                 </div>
 
               </div>

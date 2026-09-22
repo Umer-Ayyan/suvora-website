@@ -3,13 +3,6 @@ import { Helmet } from 'react-helmet';
 import { useEffect, useState } from 'react';
 import PageSkeleton from '../components/PageSkeleton';
 const About = () => {
-    const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-  setTimeout(() => {
-    setLoading(false);
-  }, 1200);
-}, []);
   return (
     <Layout>
         <Helmet>
@@ -37,9 +30,9 @@ useEffect(() => {
             </h1>
 
             <p className="text-slate-400 text-lg leading-relaxed mb-8">
-              Suvora Tech is a modern software studio focused on
-              high-performance web applications, scalable systems,
-              AI-powered experiences, and premium digital products.
+              Suvora Tech is a software engineering studio focused on
+              high-performance web applications, scalable ERP architectures,
+              and dependable digital products.
             </p>
 
             <a
@@ -51,8 +44,6 @@ useEffect(() => {
           </div>
 
           <div className="relative">
-            <div className="absolute inset-0 bg-suvora-primary blur-3xl opacity-20 rounded-full"></div>
-
             <img
               src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
               alt="Office"
@@ -68,28 +59,28 @@ useEffect(() => {
 
           <div className="p-10 rounded-2xl bg-slate-900 border border-slate-800">
             <h2 className="text-5xl font-bold text-suvora-primary mb-3">
-              10+
+              15+
             </h2>
             <p className="text-slate-400">
-              Successful Projects Delivered
+              Projects Delivered
             </p>
           </div>
 
           <div className="p-10 rounded-2xl bg-slate-900 border border-slate-800">
             <h2 className="text-5xl font-bold text-suvora-accent mb-3">
-              5+
+              2
             </h2>
             <p className="text-slate-400">
-              International Clients
+              Operating Locations
             </p>
           </div>
 
           <div className="p-10 rounded-2xl bg-slate-900 border border-slate-800">
             <h2 className="text-5xl font-bold text-green-400 mb-3">
-              24/7
+              18+
             </h2>
             <p className="text-slate-400">
-              Support & Collaboration
+              ERP Industry Presets
             </p>
           </div>
 

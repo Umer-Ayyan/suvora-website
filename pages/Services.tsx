@@ -4,14 +4,6 @@ import { useEffect, useState } from 'react';
 import PageSkeleton from '../components/PageSkeleton';
 import { Globe, Palette, Cpu, Smartphone, Cloud, Rocket } from 'lucide-react';
 const Services = () => {
-const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-  setTimeout(() => {
-    setLoading(false);
-  }, 1200);
-}, []);
-
   return (
     <Layout>
         <Helmet>
@@ -20,7 +12,7 @@ useEffect(() => {
   <meta name="keywords" content="web development Pakistan, software development Karachi, mobile app development Pakistan, AI solutions Pakistan, ERP software Pakistan, SaaS development Pakistan, software house Karachi" />
   <link rel="canonical" href="https://suvora.tech/services" />
   <meta property="og:title" content="Software Development Services Pakistan | Suvora Tech" />
-  <meta property="og:description" content="Web development, mobile apps, AI solutions and ERP software by Suvora Tech — Pakistan's modern software house in Karachi." />
+  <meta property="og:description" content="Web development, mobile apps, AI solutions and ERP software by Suvora Tech, modern software house in Karachi, Pakistan." />
   <meta property="og:url" content="https://suvora.tech/services" />
 </Helmet>
 
@@ -68,12 +60,12 @@ useEffect(() => {
                 and TypeScript.
               </p>
 
-             <a
-  href="/contact"
-  className="text-suvora-accent font-semibold hover:text-white transition-all"
->
-  Learn More →
-</a>
+              <a
+                href="/contact"
+                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
+              >
+                Discuss Web Project
+              </a>
 
             </div>
 
@@ -93,12 +85,12 @@ useEffect(() => {
                 engagement, usability, and overall digital experience.
               </p>
 
-             <a
-  href="/contact"
-  className="text-suvora-accent font-semibold hover:text-white transition-all"
->
-  Learn More →
-</a>
+              <a
+                href="/contact"
+                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
+              >
+                Request Design Review
+              </a>
             </div>
 
             {/* Service Card */}
@@ -117,12 +109,12 @@ useEffect(() => {
                 and intelligent workflows designed for modern businesses.
               </p>
 
-             <a
-  href="/contact"
-  className="text-suvora-accent font-semibold hover:text-white transition-all"
->
-  Learn More →
-</a>
+              <a
+                href="/contact"
+                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
+              >
+                Explore AI Integration
+              </a>
 
             </div>
 
@@ -142,12 +134,12 @@ useEffect(() => {
                 smooth performance, and scalable backend systems.
               </p>
 
-             <a
-  href="/contact"
-  className="text-suvora-accent font-semibold hover:text-white transition-all"
->
-  Learn More →
-</a>
+              <a
+                href="/contact"
+                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
+              >
+                Plan Mobile App
+              </a>
 
             </div>
 
@@ -168,11 +160,11 @@ useEffect(() => {
               </p>
 
               <a
-  href="/contact"
-  className="text-suvora-accent font-semibold hover:text-white transition-all"
->
-  Learn More →
-</a>
+                href="/contact"
+                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
+              >
+                Consult on Cloud Architecture
+              </a>
 
             </div>
 
@@ -193,11 +185,11 @@ useEffect(() => {
               </p>
 
               <a
-  href="/contact"
-  className="text-suvora-accent font-semibold hover:text-white transition-all"
->
-  Learn More →
-</a>
+                href="/contact"
+                className="text-suvora-accent font-semibold hover:text-white transition-all text-sm"
+              >
+                Build Your MVP
+              </a>
 
             </div>
 

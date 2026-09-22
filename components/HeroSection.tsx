@@ -1,20 +1,9 @@
-import React, { Suspense, useState, useEffect } from 'react';
-import HeroFallback from './HeroFallback';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 import confetti from 'canvas-confetti';
 
-const Hero3D = React.lazy(() => import('./Hero3D'));
-
 const HeroSection: React.FC = () => {
-  const [show3D, setShow3D] = useState(false);
-
-  useEffect(() => {
-    // Delay loading 3D slightly to prioritize LCP
-    const timer = setTimeout(() => setShow3D(true), 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   useEffect(() => {
     if (IS_INDEPENDENCE_DAY) {
       const duration = 4 * 1000;
@@ -45,18 +34,9 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background/3D Layer */}
-      {show3D ? (
-        <Suspense fallback={<HeroFallback />}>
-          <Hero3D />
-        </Suspense>
-      ) : (
-        <HeroFallback />
-      )}
-
-      {/* Content Overlay */}
-      <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-suvora-900/80 via-suvora-900/40 to-transparent" />
+    <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-suvora-900">
+      {/* Background Depth Layer */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-slate-950 via-suvora-900/90 to-suvora-900 pointer-events-none" />
       
       <div className="relative z-20 container mx-auto px-6 h-full flex flex-col justify-center">
         {IS_INDEPENDENCE_DAY && (
@@ -77,25 +57,23 @@ const HeroSection: React.FC = () => {
             <span className={`text-transparent bg-clip-text bg-gradient-to-r ${IS_INDEPENDENCE_DAY ? 'from-green-400 via-white to-green-500' : 'from-suvora-primary to-suvora-accent'}`}>future</span>, in code.
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-light leading-relaxed">
-            {SUVORA_CONFIG.tagline} Bespoke software and immersive 3D experiences for scaling businesses.
+          <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-normal leading-relaxed">
+            {SUVORA_CONFIG.tagline} Custom software, ERP solutions, and modern web applications for growing businesses.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 pointer-events-auto">
             <a 
               href="#contact" 
-              className="group relative px-8 py-4 bg-white text-suvora-900 font-bold rounded-lg overflow-hidden transition-all hover:scale-105 focus:ring-2 focus:ring-suvora-accent focus:outline-none"
+              className="px-8 py-4 bg-white text-suvora-900 font-bold rounded-lg transition-all hover:bg-slate-200 focus:ring-2 focus:ring-suvora-accent focus:outline-none text-center"
             >
-              <span className="relative z-10 flex items-center gap-2">
-                Get a custom demo <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </span>
+              Get a Free Quote
             </a>
             
             <a 
-              href="#portfolio" 
-              className="px-8 py-4 bg-transparent border border-slate-600 text-white font-medium rounded-lg backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white focus:ring-2 focus:ring-white focus:outline-none"
+              href="#products" 
+              className="px-8 py-4 bg-transparent border border-slate-700 text-white font-medium rounded-lg transition-all hover:bg-white/10 hover:border-white focus:ring-2 focus:ring-white focus:outline-none text-center"
             >
-              See our work
+              Explore Products
             </a>
           </div>
         </div>
