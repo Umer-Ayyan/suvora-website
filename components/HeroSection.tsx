@@ -1,30 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 import confetti from 'canvas-confetti';
-
-const ROTATING_WORDS = ['future', 'software', 'systems', 'platforms', 'solutions'];
+import ParticleText from './ParticleText';
 
 const HeroSection: React.FC = () => {
-  const [wordIndex, setWordIndex] = useState(0);
-  const [animClass, setAnimClass] = useState('word-transform-in');
-
-  useEffect(() => {
-    let outTimeout: ReturnType<typeof setTimeout>;
-    const interval = setInterval(() => {
-      setAnimClass('word-transform-out');
-      outTimeout = setTimeout(() => {
-        setWordIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
-        setAnimClass('word-transform-in');
-      }, 350);
-    }, 2800);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(outTimeout);
-    };
-  }, []);
-
   useEffect(() => {
     if (IS_INDEPENDENCE_DAY) {
       const duration = 4 * 1000;
@@ -75,16 +55,10 @@ const HeroSection: React.FC = () => {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight tracking-tight">
             We build the <br />
-            <span
-              className={`inline-block text-transparent bg-clip-text bg-gradient-to-r ${
-                IS_INDEPENDENCE_DAY
-                  ? 'from-green-400 via-white to-green-500'
-                  : 'from-suvora-primary to-suvora-accent'
-              } ${animClass}`}
-            >
-              {ROTATING_WORDS[wordIndex]}
+            <span className="inline-flex items-center flex-wrap">
+              <ParticleText words={['future', 'software', 'systems', 'platforms', 'solutions']} />
+              <span className="ml-1">, in code.</span>
             </span>
-            , in code.
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 mb-8 max-w-xl font-normal leading-relaxed">

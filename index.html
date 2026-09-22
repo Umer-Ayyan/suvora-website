@@ -200,56 +200,6 @@
       ::-webkit-scrollbar-track { background: #080e1a; }
       ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
       ::-webkit-scrollbar-thumb:hover { background: #2563eb; }
-
-      @keyframes wordTransformOut {
-        0% {
-          opacity: 1;
-          transform: translateY(0) rotateX(0deg);
-          filter: blur(0px);
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(-26px) rotateX(40deg);
-          filter: blur(4px);
-        }
-      }
-
-      @keyframes wordTransformIn {
-        0% {
-          opacity: 0;
-          transform: translateY(26px) rotateX(-40deg);
-          filter: blur(4px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0) rotateX(0deg);
-          filter: blur(0px);
-        }
-      }
-
-      .word-transform-in {
-        display: inline-block;
-        animation: wordTransformIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        will-change: transform, opacity, filter;
-        transform-origin: center bottom;
-      }
-
-      .word-transform-out {
-        display: inline-block;
-        animation: wordTransformOut 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        will-change: transform, opacity, filter;
-        transform-origin: center top;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .word-transform-in,
-        .word-transform-out {
-          animation: none !important;
-          transform: none !important;
-          filter: none !important;
-          opacity: 1 !important;
-        }
-      }
     </style>
   <script type="importmap">
 {
