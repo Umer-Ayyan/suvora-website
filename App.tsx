@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from './components/Layout';
 import HeroSection from './components/HeroSection';
-import HeroCarousel from './components/HeroCarousel';
 import ContactForm from './components/ContactForm';
 import { SERVICES, PORTFOLIO, TEAM, ICON_MAP, TECH_STACK } from './constants';
 import { ArrowRight, ExternalLink } from 'lucide-react';
@@ -16,9 +15,6 @@ const App: React.FC = () => {
 </Helmet>
 
       <HeroSection />
-
-      {/* Capabilities & Solutions Carousel */}
-      <HeroCarousel />
 
       {/* Our Products: FlowERP */}
       <section id="products" className="py-24 bg-slate-950 relative overflow-hidden">
