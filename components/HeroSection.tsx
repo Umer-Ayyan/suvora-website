@@ -4,7 +4,13 @@ import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 import confetti from 'canvas-confetti';
 import { MorphingText } from '@/components/animate-ui/primitives/texts/morphing';
 
-const HERO_TEXTS = ['future', 'software', 'systems', 'platforms', 'solutions'];
+const HERO_ITEMS = [
+  { text: 'future', className: 'font-display font-bold' },
+  { text: 'software', className: 'font-mono font-semibold tracking-tighter' },
+  { text: 'systems', className: 'font-serif italic font-semibold' },
+  { text: 'platforms', className: 'font-tech font-extrabold tracking-tight' },
+  { text: 'solutions', className: 'font-sans font-black tracking-tight' },
+];
 
 const HeroSection: React.FC = () => {
   useEffect(() => {
@@ -59,8 +65,8 @@ const HeroSection: React.FC = () => {
             We build the <br />
             <span className="inline-flex items-baseline whitespace-nowrap">
               <MorphingText
-                className="inline-block text-sky-400 font-display font-bold"
-                text={HERO_TEXTS}
+                className="inline-block text-sky-400"
+                text={HERO_ITEMS}
                 loop={true}
                 holdDelay={2600}
               />

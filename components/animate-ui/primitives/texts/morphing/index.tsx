@@ -18,16 +18,22 @@ function segmentGraphemes(text: string): string[] {
   return Array.from(text);
 }
 
+type MorphingTextItem = string | { text: string; className?: string };
+
 type MorphingTextProps = Omit<HTMLMotionProps<'span'>, 'children'> & {
   delay?: number;
   loop?: boolean;
   holdDelay?: number;
-  text: string | string[];
+  text: MorphingTextItem | MorphingTextItem[];
+  itemClassNames?: string[];
+  onIndexChange?: (index: number) => void;
 } & UseIsInViewOptions;
 
 function MorphingText({
   ref,
   text,
+  itemClassNames,
+  onIndexChange,
   initial = { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
   animate = { opacity: 1, scale: 1, filter: 'blur(0px)' },
   exit = { opacity: 0, scale: 0.8, filter: 'blur(10px)' },
@@ -55,12 +61,16 @@ function MorphingText({
   const [currentIndex, setCurrentIndex] = React.useState(0);
   const [started, setStarted] = React.useState(false);
 
-  const currentText = React.useMemo(() => {
+  const currentItem = React.useMemo(() => {
     if (Array.isArray(text)) {
-      return text[currentIndex];
+      const item = text[currentIndex];
+      return typeof item === 'string' ? { text: item } : item;
     }
-    return text;
+    return typeof text === 'string' ? { text } : text;
   }, [text, currentIndex]);
+
+  const currentText = currentItem.text;
+  const currentItemClass = itemClassNames?.[currentIndex] || currentItem.className || '';
 
   const chars = React.useMemo(() => {
     const graphemes = segmentGraphemes(currentText);
@@ -72,9 +82,10 @@ function MorphingText({
       return {
         layoutId: `${uniqueId}-${key}-${n}`,
         label: key === ' ' ? '\u00A0' : key,
+        className: currentItemClass,
       };
     });
-  }, [currentText, uniqueId]);
+  }, [currentText, currentItemClass, uniqueId]);
 
   React.useEffect(() => {
     if (isInView) {
@@ -101,10 +112,11 @@ function MorphingText({
         }
       }
       setCurrentIndex(index);
+      onIndexChange?.(index);
     }, holdDelay);
 
     return () => clearInterval(interval);
-  }, [started, loop, text, holdDelay]);
+  }, [started, loop, text, holdDelay, onIndexChange]);
 
   return (
     <motion.span ref={localRef} aria-label={currentText} {...props}>
@@ -113,6 +125,7 @@ function MorphingText({
           <motion.span
             key={char.layoutId}
             layoutId={char.layoutId}
+            className={char.className}
             style={{ display: 'inline-block', willChange: 'transform, filter, opacity' }}
             aria-hidden="true"
             initial={initial}
