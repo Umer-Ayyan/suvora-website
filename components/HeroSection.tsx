@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { SUVORA_CONFIG, IS_INDEPENDENCE_DAY } from '../constants';
 import confetti from 'canvas-confetti';
-import KineticText from './KineticText';
+import { MorphingText } from '@/components/animate-ui/primitives/texts/morphing';
+
+const HERO_TEXTS = ['future', 'software', 'systems', 'platforms', 'solutions'];
 
 const HeroSection: React.FC = () => {
   useEffect(() => {
@@ -56,7 +58,19 @@ const HeroSection: React.FC = () => {
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-display font-bold text-white mb-6 leading-[1.12] tracking-tight">
             We build the <br />
             <span className="inline-flex items-baseline whitespace-nowrap">
-              <KineticText words={['future', 'software', 'systems', 'platforms', 'solutions']} />
+              <MorphingText
+                className={`inline-block text-transparent bg-clip-text bg-gradient-to-r ${
+                  IS_INDEPENDENCE_DAY
+                    ? 'from-green-400 via-white to-green-500'
+                    : 'from-suvora-primary via-blue-500 to-suvora-accent'
+                }`}
+                style={{
+                  filter: 'drop-shadow(0 0 20px rgba(37, 99, 235, 0.35))',
+                }}
+                text={HERO_TEXTS}
+                loop={true}
+                holdDelay={2600}
+              />
               <span>,&nbsp;in&nbsp;code.</span>
             </span>
           </h1>
